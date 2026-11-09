@@ -261,3 +261,28 @@ einer Subdomain von mhitzelberger.de.
 4. DAS Zitate-System SOLL in der Einrichtungskonfiguration ausschließlich einen Passwort-Hash erwarten und zu keinem Zeitpunkt ein Klartext-Passwort für den initialen Account erfordern oder speichern.
 5. IF in der Einrichtungskonfiguration der Benutzername oder der Passwort-Hash des initialen Accounts fehlt oder leer ist, während noch kein Betreiber-Account existiert, THEN SOLL das Zitate-System keinen Account anlegen und bei einem Anmeldeversuch den Zugang verweigern.
 6. DAS Zitate-System SOLL ein Werkzeug bereitstellen, mit dem der Betreiber aus einem Klartext-Passwort den für die Einrichtungskonfiguration benötigten Passwort-Hash erzeugen kann, ohne dass das Klartext-Passwort dauerhaft abgelegt wird.
+### Anforderung 18: Alle Zitate für die Verwaltung auflisten
+
+**User Story:** Als Betreiber möchte ich alle vorhandenen Zitate seitenweise auflisten, damit ich ein zu bearbeitendes oder zu löschendes Zitat gezielt auffinden kann, ohne einen Suchbegriff zu kennen.
+
+#### Akzeptanzkriterien
+
+1. WENN der Betreiber mit gültiger Session eine Liste aller Zitate anfordert, DANN SOLL die Zitat-API die Zitate seitenweise (Pagination) mit einer Seitengröße zwischen 1 und 100 (Standardwert 20, wenn keine Seitengröße angefordert wird) und einer anforderbaren Seitennummer (Standardwert 1, wenn keine Seitennummer angefordert wird) zusammen mit der Gesamtanzahl aller vorhandenen Zitate zurückgeben.
+2. DIE Zitat-API SOLL je Listeneintrag mindestens die Kennung, den Zitattext, die zugeordnete Sprache (Kennung und Bezeichnung) und die zugeordnete Quelle (Kennung und Name) zurückgeben.
+3. DIE Zitat-API SOLL die Liste aller Zitate in einer bei gleicher Datenlage wiederholbaren, eindeutigen Reihenfolge zurückgeben.
+4. WENN eine angeforderte Seitennummer größer ist als die Anzahl der vorhandenen Ergebnisseiten, DANN SOLL die Zitat-API eine leere Ergebnisliste zusammen mit der unveränderten Gesamtanzahl zurückgeben.
+5. WENN keine Zitate vorhanden sind, DANN SOLL die Zitat-API eine leere Ergebnisliste mit Gesamtanzahl 0 zurückgeben.
+6. IF eine Anfrage zum Auflisten aller Zitate mit einer gemäß Anforderung 6.11 nicht authentifizierten oder ungültigen Session übermittelt wird, THEN SOLL das Zitate-System die Anfrage ablehnen und eine Nicht-autorisiert-Antwort zurückgeben, ohne Daten zurückzugeben.
+
+### Anforderung 19: Alle Quellen für die Verwaltung auflisten
+
+**User Story:** Als Betreiber möchte ich alle vorhandenen Autor*innen/Quellen auflisten, damit ich eine Quelle zum Bearbeiten oder Löschen auswählen und beim Anlegen oder Bearbeiten eines Zitats eine vorhandene Quelle zuordnen kann.
+
+#### Akzeptanzkriterien
+
+1. WENN der Betreiber mit gültiger Session eine Liste aller Quellen anfordert, DANN SOLL die Autoren-API die Quellen seitenweise (Pagination) mit einer Seitengröße zwischen 1 und 100 (Standardwert 20, wenn keine Seitengröße angefordert wird) und einer anforderbaren Seitennummer (Standardwert 1, wenn keine Seitennummer angefordert wird) zusammen mit der Gesamtanzahl aller vorhandenen Quellen zurückgeben.
+2. DIE Autoren-API SOLL je Listeneintrag mindestens die Kennung und den Namen der Quelle sowie eine Kennzeichnung, ob es sich um die Unbekannt-Quelle handelt, zurückgeben.
+3. DIE Autoren-API SOLL die Liste aller Quellen in einer bei gleicher Datenlage wiederholbaren, eindeutigen Reihenfolge zurückgeben.
+4. WENN eine angeforderte Seitennummer größer ist als die Anzahl der vorhandenen Ergebnisseiten, DANN SOLL die Autoren-API eine leere Ergebnisliste zusammen mit der unveränderten Gesamtanzahl zurückgeben.
+5. WENN außer der stets vorhandenen Unbekannt-Quelle keine weiteren Quellen vorhanden sind, DANN SOLL die Autoren-API eine Ergebnisliste zurückgeben, die mindestens die Unbekannt-Quelle enthält.
+6. IF eine Anfrage zum Auflisten aller Quellen mit einer gemäß Anforderung 6.11 nicht authentifizierten oder ungültigen Session übermittelt wird, THEN SOLL das Zitate-System die Anfrage ablehnen und eine Nicht-autorisiert-Antwort zurückgeben, ohne Daten zurückzugeben.

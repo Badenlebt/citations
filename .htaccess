@@ -1,0 +1,63 @@
+# ---------------------------------------------------------------------------
+# Apache routing for the citations app (IONOS Webhosting Pro / shared hosting).
+#
+# Deploy layout (web root):
+#   <web-root>/
+#     index.html          <- built Vue-3 SPA (frontend/dist/index.html)
+#     assets/             <- built SPA assets (frontend/dist/assets/)
+#     .htaccess           <- THIS FILE
+#     api/
+#       index.php         <- PHP REST front controller
+#       .htaccess         <- API-dir rules (API passthrough + config block)
+#   ../config.php          <- DB/operator credentials, ABOVE the web root
+#
+# Routing contract (Design "Request-Routing", Req 16.3 / 16.4):
+#   /api/*            -> handled by the PHP REST API (api/index.php)
+#   everything else   -> static file if it exists, otherwise SPA fallback to
+#                        index.html so client-side routes (/quotes/:id,
+#                        /sources/:id, /admin, ...) resolve.
+#
+# Credential protection (Req 15.5): config.php lives ABOVE the web root, but as
+# defense-in-depth we also deny any *.php config pattern under the API dir here
+# and in api/.htaccess, so a public URL never leaks file content or values.
+# ---------------------------------------------------------------------------
+
+# Do not expose directory listings anywhere under this root.
+Options -Indexes
+
+# Defense-in-depth: deny direct public access to credential-bearing config
+# files, whatever the rewrite rules below do. Covers config.php and common
+# config.*.php variants (e.g. config.local.php, config.prod.php). Returns a
+# 403 with no body, so neither file content nor single credential values leak.
+<FilesMatch "^(config(\..+)?\.php|\.env.*)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Resolve relative to this directory (robust under a subdomain docroot).
+    RewriteBase /
+
+    # --- /api/* -> PHP REST front controller (Req 16.3) -------------------
+    # Hand every request whose path starts with /api to api/index.php. The
+    # front controller reads the full request path/method from PHP globals and
+    # does its own routing, so we pass the request through unchanged (no query
+    # rewriting needed; QSA keeps the original query string).
+    RewriteRule ^api(/.*)?$ api/index.php [L,QSA]
+
+    # --- Static files pass through ---------------------------------------
+    # If the request maps to an existing file or directory, serve it as-is.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # --- SPA fallback (Req 16.4) -----------------------------------------
+    # Any other non-API path that is not a real file/dir renders the SPA
+    # entry point, letting Vue Router resolve the client-side route.
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# If mod_rewrite is unavailable, still serve the SPA entry as the directory
+# index so the site is not a blank 404.
+DirectoryIndex index.html

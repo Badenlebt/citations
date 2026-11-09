@@ -1,0 +1,1454 @@
+{
+  "pbtResults": {
+    "4.2 Property-Test für gültigen Bereich und Vollständigkeit der Auswahl": {
+      "status": "passed",
+      "lastRunTimestamp": 1792744872724
+    },
+    "6.4 Property-Test für Abweisung fehlender Zugangsdaten": {
+      "status": "passed",
+      "lastRunTimestamp": 1792751674998
+    },
+    "6.7 Property-Test für Session-Gültigkeit nach Ablaufdauer": {
+      "status": "passed",
+      "lastRunTimestamp": 1792753018711
+    },
+    "7.3 Property-Test für keine neue Quelle beim Anlegen": {
+      "status": "passed",
+      "lastRunTimestamp": 1793200278260
+    },
+    "7.10 Property-Test für ungültigen Zitattext ohne Zustandsänderung": {
+      "status": "passed",
+      "lastRunTimestamp": 1793200282356
+    }
+  },
+  "executionHistory": {
+    "1.1 Projekt- und Verzeichnisstruktur sowie Testframeworks aufsetzen": [
+      {
+        "executionId": "612f12ee-528c-4d8a-81ac-08846d63d577",
+        "chatSessionId": "sess_61054557-b105-4381-b8fd-bee4d86163f1",
+        "timestamp": 1792672992679
+      }
+    ],
+    "1.3 Property-Test für Case-/Diakritika-Invarianz der Normalform": [
+      {
+        "executionId": "07591681-528c-42ec-8c3b-ff3d018b85ed",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674363373
+      },
+      {
+        "executionId": "07591681-528c-42ec-8c3b-ff3d018b85ed",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674696031
+      }
+    ],
+    "2.1 MariaDB-Schema und Seed für die Unbekannt-Quelle erstellen": [
+      {
+        "executionId": "849f5d3a-9e4f-4896-b444-95ecc4d5ec83",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674881395
+      },
+      {
+        "executionId": "9bb180f0-cab6-4f09-bad6-0e9e9ffc6c71",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677277412
+      }
+    ],
+    "2.2 Repository-Interfaces definieren": [
+      {
+        "executionId": "849f5d3a-9e4f-4896-b444-95ecc4d5ec83",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674882451
+      },
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677304861
+      },
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677471312
+      }
+    ],
+    "3.1 Matching von Suchbegriffen gegen Zitattext und Quellenname implementieren": [
+      {
+        "executionId": "849f5d3a-9e4f-4896-b444-95ecc4d5ec83",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674883811
+      },
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677305760
+      },
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677472712
+      }
+    ],
+    "3.4 Sprachfilter in der Suchlogik implementieren": [
+      {
+        "executionId": "849f5d3a-9e4f-4896-b444-95ecc4d5ec83",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674885212
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792682914096
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683210078
+      }
+    ],
+    "3.7 Relevanz-Scoring implementieren": [
+      {
+        "executionId": "849f5d3a-9e4f-4896-b444-95ecc4d5ec83",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792674885792
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792682912271
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792682999214
+      }
+    ],
+    "6.1 Passwort-Hashing-Wrapper implementieren": [
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677306791
+      },
+      {
+        "executionId": "92868752-667c-4053-8357-3f7366db0f89",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792677473335
+      }
+    ],
+    "4.1 Reinen Zufallsauswahl-Algorithmus implementieren": [
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792682913118
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792682998529
+      }
+    ],
+    "6.3 Zugangsdaten-Validierung und generische Fehlerprüfung implementieren": [
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683003563
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683208179
+      }
+    ],
+    "6.6 Session-Ablauf- und Rate-Limit-Logik implementieren": [
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683004354
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683209144
+      }
+    ],
+    "6.9 Token-Klassifikation und Logout-Logik implementieren": [
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792683213525
+      },
+      {
+        "executionId": "6d0e37ea-804e-4da7-baf8-ade22c67d48f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792687538149
+      }
+    ],
+    "3.12 Deterministische Sortierung mit Tie-Break implementieren": [
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742341175
+      },
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742922191
+      }
+    ],
+    "3.15 Pagination-Berechnung implementieren": [
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742342142
+      },
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742917782
+      }
+    ],
+    "2.3 In-Memory-Repository-Implementierungen als Test-Doubles erstellen": [
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742345921
+      },
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742918576
+      }
+    ],
+    "2. Datenbank-Schema und Repository-Schnittstellen": [
+      {
+        "executionId": "37d09598-7638-4fe2-b941-a89c61692490",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792742918609
+      }
+    ],
+    "3.18 Sucheingabe-Validierung implementieren": [
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744595562
+      },
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744917277
+      }
+    ],
+    "3.2 Property-Test für Teiltreffer-Fund": [
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744596255
+      },
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744913247
+      }
+    ],
+    "4.2 Property-Test für gültigen Bereich und Vollständigkeit der Auswahl": [
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744600129
+      },
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744914184
+      }
+    ],
+    "4. Zufallsauswahl mit injizierbarem RNG": [
+      {
+        "executionId": "969896dd-99ae-4f24-bbfa-4573be38a0a5",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744914217
+      }
+    ],
+    "3.3 Property-Test für Feldausschluss beim Matching": [
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744985183
+      },
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792745107190
+      }
+    ],
+    "3.5 Property-Test für Sprachfilter-Einschränkung": [
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744986164
+      },
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792745106330
+      }
+    ],
+    "3.6 Property-Test für Sprachneutralität ohne Filter": [
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792744989517
+      },
+      {
+        "executionId": "bb8e77b7-2bc9-40b6-8689-b37e1df49d4c",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792745111846
+      }
+    ],
+    "3.9 Property-Test für Mehrwort-Treffer": [
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748732632
+      },
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748941326
+      }
+    ],
+    "3.8 Property-Test für Trefferart-Hierarchie": [
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748733662
+      },
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748940582
+      }
+    ],
+    "3.10 Property-Test für gemeinsamen Beitrag von Text und Quellenname": [
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748736562
+      },
+      {
+        "executionId": "42a48201-3fb3-4f93-b2ae-56fc9fe7d162",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792748944241
+      }
+    ],
+    "3.11 Property-Test für Case-/Diakritika-Invarianz des Scorings": [
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751460389
+      },
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751871698
+      }
+    ],
+    "6.2 Property-Test für Passwort-Hash-Round-Trip": [
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751461092
+      },
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751870766
+      }
+    ],
+    "6.4 Property-Test für Abweisung fehlender Zugangsdaten": [
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751463934
+      },
+      {
+        "executionId": "e44694ee-fd31-4444-ba5d-4300ea6f9059",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792751875512
+      }
+    ],
+    "6.5 Property-Test für generische, ununterscheidbare Fehlerantwort": [
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792752926613
+      },
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792761423432
+      }
+    ],
+    "6.7 Property-Test für Session-Gültigkeit nach Ablaufdauer": [
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792752927701
+      },
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792761424380
+      }
+    ],
+    "16.5 CLI-Werkzeug zur Passwort-Hash-Erzeugung implementieren": [
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792752931103
+      },
+      {
+        "executionId": "684c8679-d6b8-45c1-ba24-18b1a38b2f9f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792761428386
+      }
+    ],
+    "6.8 Property-Test für Rate-Limit-Sperre": [
+      {
+        "executionId": "5651cb19-4ac8-44da-a1b5-6a013f9c5b94",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792761566247
+      },
+      {
+        "executionId": "5651cb19-4ac8-44da-a1b5-6a013f9c5b94",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762111271
+      }
+    ],
+    "6.10 Property-Test für dauerhafte Ungültigkeit nach Logout": [
+      {
+        "executionId": "5651cb19-4ac8-44da-a1b5-6a013f9c5b94",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792761567323
+      },
+      {
+        "executionId": "5651cb19-4ac8-44da-a1b5-6a013f9c5b94",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762112065
+      }
+    ],
+    "6. Authentifizierungs- und Session-Logik (rein)": [
+      {
+        "executionId": "5651cb19-4ac8-44da-a1b5-6a013f9c5b94",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762112099
+      }
+    ],
+    "3.13 Property-Test für absteigende Sortierung": [
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762390742
+      },
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762704783
+      }
+    ],
+    "3.16 Property-Test für korrekten Seitenausschnitt": [
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762391684
+      },
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762705813
+      }
+    ],
+    "3.19 Property-Test für Abweisung leerer Sucheingabe": [
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762395571
+      },
+      {
+        "executionId": "d3f5bafa-a8e2-4c05-9c62-b22a4bcf781f",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762710233
+      }
+    ],
+    "3.14 Property-Test für wiederholbare Tie-Break-Reihenfolge": [
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762753653
+      },
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792763072591
+      }
+    ],
+    "3.17 Property-Test für Seiten jenseits der letzten Seite": [
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762754454
+      },
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792763073650
+      }
+    ],
+    "3.20 Property-Test für Abweisung überlanger Sucheingabe": [
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792762759099
+      },
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792763077601
+      }
+    ],
+    "3. Reine Suchlogik: Matching, Scoring, Filter, Pagination": [
+      {
+        "executionId": "228c8d71-b8a9-4ae7-b45a-332a7d28bf49",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1792763077635
+      }
+    ],
+    "5. Checkpoint - Suchlogik verifizieren": [
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793114611889
+      }
+    ],
+    "7.1 Zitat-Anlegen implementieren": [
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793114615896
+      },
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793116520463
+      }
+    ],
+    "8.1 Quellen-Anlegen und -Bearbeiten implementieren": [
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793114620838
+      },
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793117176922
+      }
+    ],
+    "9.1 Sprach-Anlegen und -Validierung implementieren": [
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793114624663
+      },
+      {
+        "executionId": "fc5339b2-750b-4bfa-8371-e42a731216d0",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793117180171
+      }
+    ],
+    "7.9 Zitat-Eingabevalidierung (Text, Quelle, Sprache, Länge) implementieren": [
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180017666
+      },
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180085929
+      },
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180089285
+      },
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180128205
+      },
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180133761
+      },
+      {
+        "executionId": "16c1e4b8-ea4b-4332-a629-aa62b4249176",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180276623
+      },
+      {
+        "executionId": "16c1e4b8-ea4b-4332-a629-aa62b4249176",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180277395
+      },
+      {
+        "executionId": "4da9abfb-3dc8-4832-b8e1-cbfeaa79a536",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180382561
+      },
+      {
+        "executionId": "4da9abfb-3dc8-4832-b8e1-cbfeaa79a536",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180398371
+      },
+      {
+        "executionId": "4da9abfb-3dc8-4832-b8e1-cbfeaa79a536",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793186013723
+      }
+    ],
+    "8.2 Quellen-Validierung (Name, Optionalfelder, Link-URL, Länge) implementieren": [
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180021608
+      },
+      {
+        "executionId": "4da9abfb-3dc8-4832-b8e1-cbfeaa79a536",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793186058385
+      }
+    ],
+    "8.7 Quellen-Löschen mit Strategie reassign/cancel implementieren": [
+      {
+        "executionId": "78805dee-79a6-4869-a969-058500f6d9de",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793180022574
+      },
+      {
+        "executionId": "4da9abfb-3dc8-4832-b8e1-cbfeaa79a536",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793188412673
+      }
+    ],
+    "8.12 Unbekannt-Quelle-Invarianten durchsetzen": [
+      {
+        "executionId": "d01fed44-0df3-450f-808f-8fb4cf966c1e",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793188771535
+      },
+      {
+        "executionId": "d01fed44-0df3-450f-808f-8fb4cf966c1e",
+        "chatSessionId": "sess_169e0440-dcf9-4a24-951f-1fb7eb02d061",
+        "timestamp": 1793189092137
+      }
+    ],
+    "7.5 Zitat-Bearbeiten und -Löschen implementieren": [
+      {
+        "executionId": "c2d6ba00-37d7-4f2a-9e05-d6a7032703dd",
+        "chatSessionId": "sess_b5102a5a-0538-4891-ad54-a6651c92f4a6",
+        "timestamp": 1793194082978
+      },
+      {
+        "executionId": "c2d6ba00-37d7-4f2a-9e05-d6a7032703dd",
+        "chatSessionId": "sess_b5102a5a-0538-4891-ad54-a6651c92f4a6",
+        "timestamp": 1793194324022
+      }
+    ],
+    "7.2 Property-Test für Zitat-Anlegen-Round-Trip": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793200182976
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201247355
+      }
+    ],
+    "7.3 Property-Test für keine neue Quelle beim Anlegen": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793200183854
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201248710
+      }
+    ],
+    "7.4 Property-Test für Unbekannt-Quelle ohne Quellenauswahl": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793200185301
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201249656
+      }
+    ],
+    "7.10 Property-Test für ungültigen Zitattext ohne Zustandsänderung": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793200186253
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201251070
+      }
+    ],
+    "7.11 Property-Test für ungültige Quelle/Sprache ohne Zustandsänderung": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793200187326
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201252036
+      }
+    ],
+    "7.6 Property-Test für Zitat-Bearbeiten-Round-Trip": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201264418
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201562542
+      }
+    ],
+    "7.7 Property-Test für gezieltes Zitat-Löschen": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201265355
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201563488
+      }
+    ],
+    "7.8 Property-Test für Operationen auf nicht vorhandenen Zitaten": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201266499
+      },
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201564538
+      }
+    ],
+    "7. Zitat-Mutationslogik (gegen Repository)": [
+      {
+        "executionId": "4d23eb4d-f83c-4eac-87dd-0b7590347d8b",
+        "chatSessionId": "sess_b8cdee5b-5671-4922-bd06-7dd8ae349cec",
+        "timestamp": 1793201564575
+      }
+    ],
+    "8.3 Property-Test für Quellen-Anlegen/Bearbeiten-Round-Trip": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203271945
+      }
+    ],
+    "8.4 Property-Test für ungültigen Quellennamen": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203272895
+      }
+    ],
+    "8.5 Property-Test für Längengrenzen der Optionalfelder": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203274288
+      }
+    ],
+    "8.6 Property-Test für Link-URL-Validierung": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203275262
+      }
+    ],
+    "8.8 Property-Test für Löschen einer Quelle ohne Zitate": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203276655
+      }
+    ],
+    "8.9 Property-Test für angehaltenes Löschen ohne Strategie": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203278040
+      }
+    ],
+    "8.10 Property-Test für Umhängen auf die Unbekannt-Quelle": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203279005
+      }
+    ],
+    "8.11 Property-Test für Löschabbruch": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203280403
+      }
+    ],
+    "8.13 Property-Test für Unlöschbarkeit der Unbekannt-Quelle": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203281356
+      }
+    ],
+    "8.14 Property-Test für genau eine Unbekannt-Quelle": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203282754
+      }
+    ],
+    "8.15 Property-Test für Reservierung des Namens \"unbekannt\"": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203283613
+      }
+    ],
+    "8. Quellen-Mutationslogik und Konfliktbehandlung (gegen Repository)": [
+      {
+        "executionId": "5a6a7efa-5a54-41c2-8f0d-ff53ac37dc9f",
+        "chatSessionId": "sess_c8e4dcc2-de64-4724-b5da-ae0047cd1502",
+        "timestamp": 1793203283647
+      }
+    ],
+    "9. Sprach-Mutationslogik (gegen Repository)": [
+      {
+        "executionId": "9c806dd8-f61a-437b-a3cf-33e48fc52498",
+        "chatSessionId": "sess_1c7f6397-15f5-4cbc-b143-dbd9b315ce37",
+        "timestamp": 1793203333759
+      },
+      {
+        "executionId": "9c806dd8-f61a-437b-a3cf-33e48fc52498",
+        "chatSessionId": "sess_1c7f6397-15f5-4cbc-b143-dbd9b315ce37",
+        "timestamp": 1793203828779
+      }
+    ],
+    "10. Checkpoint - Mutations- und Auth-Logik verifizieren": [
+      {
+        "executionId": "a5bce966-dc99-413f-943f-4bbe9ce96e3c",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793204337762
+      },
+      {
+        "executionId": "a5bce966-dc99-413f-943f-4bbe9ce96e3c",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793205018118
+      }
+    ],
+    "9.2 Property-Test für Sprach-Anlegen-Round-Trip": [
+      {
+        "executionId": "fc0bb556-7cb6-4168-8f53-dc90ee8100b4",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793205327145
+      }
+    ],
+    "9.3 Property-Test für ungültige Sprachbezeichnung": [
+      {
+        "executionId": "fc0bb556-7cb6-4168-8f53-dc90ee8100b4",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793205328535
+      }
+    ],
+    "9.4 Property-Test für case-insensitive Eindeutigkeit der Sprachen": [
+      {
+        "executionId": "fc0bb556-7cb6-4168-8f53-dc90ee8100b4",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793205329528
+      }
+    ],
+    "9.5 Property-Test für feldübergreifende Längenbegrenzung": [
+      {
+        "executionId": "fc0bb556-7cb6-4168-8f53-dc90ee8100b4",
+        "chatSessionId": "sess_26c68441-ae4c-4fb4-96fb-540dc1ebb545",
+        "timestamp": 1793205330594
+      }
+    ],
+    "11.1 PDO-Verbindung mit sicherer Credential-Quelle implementieren": [
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793205371192
+      },
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793206842155
+      }
+    ],
+    "11.2 PDO-Repository-Implementierungen erstellen": [
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793206848753
+      },
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208077700
+      }
+    ],
+    "11.3 PDO-Zufallsauswahl an den reinen Algorithmus anbinden": [
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208080495
+      },
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208708128
+      }
+    ],
+    "11.5 Initialen Betreiber-Account aus der Einrichtungskonfiguration seeden": [
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208714092
+      },
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208909400
+      }
+    ],
+    "11.4 Integrationstests für PDO-I/O-Pfad": [
+      {
+        "executionId": "036fd45b-4ee5-4820-b860-51c9d8e0f5a4",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793208916748
+      },
+      {
+        "executionId": "47606310-96e5-4abb-ad9c-820bea81127a",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793266788622
+      }
+    ],
+    "12.1 Front-Controller und Request-Dispatch implementieren": [
+      {
+        "executionId": "8c50e65f-e364-4060-bf1a-52e43545db90",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793268430100
+      },
+      {
+        "executionId": "8c50e65f-e364-4060-bf1a-52e43545db90",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793280687217
+      }
+    ],
+    "12.2 Session-Guard-Middleware implementieren": [
+      {
+        "executionId": "8c50e65f-e364-4060-bf1a-52e43545db90",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793280697326
+      },
+      {
+        "executionId": "6e1fe130-252b-427d-bfd8-67ffdd81ed42",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793371031314
+      },
+      {
+        "executionId": "6e1fe130-252b-427d-bfd8-67ffdd81ed42",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793372665249
+      }
+    ],
+    "11.6 Beispiel-/Integrationstests für die initiale Account-Einrichtung": [
+      {
+        "executionId": "60ba8a31-3a5f-4a40-9cca-5a4f06e51faf",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793376963866
+      },
+      {
+        "executionId": "60ba8a31-3a5f-4a40-9cca-5a4f06e51faf",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793377855245
+      }
+    ],
+    "11. PDO-Repositories und Datenbankverbindung": [
+      {
+        "executionId": "60ba8a31-3a5f-4a40-9cca-5a4f06e51faf",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793377855295
+      }
+    ],
+    "12.3 Property-Test für Schreibschutz ohne gültige Session": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793377917469
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378627424
+      }
+    ],
+    "12.4 Property-Test für öffentliche lesende Endpunkte": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793377918443
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378632311
+      }
+    ],
+    "12.5 Such-API-Endpunkte anbinden (GET /api/search, GET /api/random)": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793377919419
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378626661
+      }
+    ],
+    "12.6 Zitat-API-Endpunkte anbinden (GET/POST/PUT/DELETE /api/quotes)": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378638247
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378924940
+      }
+    ],
+    "12.8 Autoren-API-Endpunkte anbinden (GET/POST/PUT/DELETE /api/sources)": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793378931165
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793379793145
+      }
+    ],
+    "12.10 Sprach-API-Endpunkte anbinden (GET/POST /api/languages)": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793379796682
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380059937
+      }
+    ],
+    "12.12 Auth-API-Endpunkte anbinden (POST /api/auth/login, logout)": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380063870
+      },
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380599956
+      }
+    ],
+    "12.7 Beispieltests für Zitat- und Zufallsantworten": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380606907
+      },
+      {
+        "executionId": "da650ad0-52a0-4112-bd83-ff4c97e749ec",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793381059307
+      }
+    ],
+    "12.9 Beispieltests für Quellen-Antworten": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380607846
+      },
+      {
+        "executionId": "da650ad0-52a0-4112-bd83-ff4c97e749ec",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793381060314
+      }
+    ],
+    "12.11 Beispieltests für Sprachbestand": [
+      {
+        "executionId": "a5bc05dd-9de9-4951-9bac-ac974c832145",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793380608773
+      },
+      {
+        "executionId": "da650ad0-52a0-4112-bd83-ff4c97e749ec",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793381061143
+      }
+    ],
+    "12.13 Beispieltests für Login und mehrere Accounts": [
+      {
+        "executionId": "30ce87ba-9625-4370-afa0-d8ca3a5dab1b",
+        "chatSessionId": "sess_b8f90c9f-7a87-4403-b1f1-1b805d674f4a",
+        "timestamp": 1793709455000
+      },
+      {
+        "executionId": "06ce19d1-ea59-42cd-9ab1-29da4abc3158",
+        "chatSessionId": "sess_e97bca79-5a3c-4f9b-8dd3-f33255b5a9a3",
+        "timestamp": 1793782631505
+      }
+    ],
+    "12. Front-Controller, Session-Guard und HTTP-Endpunkte": [
+      {
+        "executionId": "06ce19d1-ea59-42cd-9ab1-29da4abc3158",
+        "chatSessionId": "sess_e97bca79-5a3c-4f9b-8dd3-f33255b5a9a3",
+        "timestamp": 1793782632018
+      }
+    ],
+    "13. Checkpoint - API-Endpunkte verifizieren": [
+      {
+        "executionId": "06ce19d1-ea59-42cd-9ab1-29da4abc3158",
+        "chatSessionId": "sess_e97bca79-5a3c-4f9b-8dd3-f33255b5a9a3",
+        "timestamp": 1793782635912
+      },
+      {
+        "executionId": "f80b8224-9d40-4adb-8c7a-3ece5c850f9b",
+        "chatSessionId": "sess_e97bca79-5a3c-4f9b-8dd3-f33255b5a9a3",
+        "timestamp": 1793800689294
+      }
+    ],
+    "14.1 Vue-3-SPA-Grundgerüst und clientseitiges Routing aufsetzen": [
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793800730079
+      },
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801232994
+      }
+    ],
+    "14.2 Mehrsprachige Oberfläche (DE/EN) mit Browser-Default implementieren": [
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801236455
+      },
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801465138
+      }
+    ],
+    "14.4 Längenbegrenzte Eingabefelder mit Zeichenzähler implementieren": [
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801238796
+      },
+      {
+        "executionId": "af2a43c0-15e1-472c-b951-486748d556cc",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801465983
+      }
+    ],
+    "15.1 Such-, Zitat- und Quellen-Ansichten implementieren": [
+      {
+        "executionId": "a6778db5-c2ed-4943-a282-ed5062b992fb",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801535257
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227834145
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227837576
+      }
+    ],
+    "15.3 Admin-Oberfläche und Lösch-Entscheidungs-Dialog implementieren": [
+      {
+        "executionId": "a6778db5-c2ed-4943-a282-ed5062b992fb",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801537705
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227840448
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227843133
+      }
+    ],
+    "16.1 .htaccess-Routing mit SPA-Fallback und Config-Schutz erstellen": [
+      {
+        "executionId": "a6778db5-c2ed-4943-a282-ed5062b992fb",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801539995
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227845853
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227848518
+      }
+    ],
+    "16.3 Sichere Credential-Ablage und .gitignore einrichten": [
+      {
+        "executionId": "a6778db5-c2ed-4943-a282-ed5062b992fb",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1793801542278
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227850994
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227853577
+      }
+    ],
+    "14.3 Komponententests für Oberflächensprache": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227857812
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229800012
+      }
+    ],
+    "14.5 Komponententests für Eingabebegrenzung und Zeichenzähler": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227860526
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229803096
+      }
+    ],
+    "15.2 Komponententests für Ansichts-Rendering": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227863901
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229806798
+      }
+    ],
+    "15.4 Komponententest für Lösch-Konflikt-UI": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227866593
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229809647
+      }
+    ],
+    "16.4 Smoke-/Compliance-Tests für Betrieb und Setup": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794227869174
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229812718
+      }
+    ],
+    "14. Frontend: Grundgerüst, i18n und API-Client": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229803136
+      }
+    ],
+    "15. Frontend: Ansichten und Lösch-Konflikt-Dialog": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229809683
+      }
+    ],
+    "16.2 Integrationstests für Routing und Credential-Schutz": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794229816503
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794230063743
+      }
+    ],
+    "16. Routing, sichere Credentials und Deployment-Build": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794230063792
+      }
+    ],
+    "17.1 Repository-Listenmethoden für Zitate und Quellen ergänzen": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794230070927
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231610871
+      }
+    ],
+    "17.2 Session-Guard um geschützte Lese-Routen erweitern": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794230073868
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231613903
+      }
+    ],
+    "17.3 Listen-Endpunkte anbinden (GET /api/quotes, GET /api/sources)": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231618055
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231808302
+      }
+    ],
+    "17.4 Beispiel-/Integrationstests für die Listen-Endpunkte": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231811532
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794232865232
+      }
+    ],
+    "17.5 Frontend-Anbindung der Verwaltungs-Listen im Admin-Bereich": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794231814479
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794232868389
+      }
+    ],
+    "17.6 Komponententests für die Verwaltungs-Listen": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794232872398
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794233025487
+      }
+    ],
+    "17. Verwaltungs-Listen: Alle Zitate und alle Quellen auflisten": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794233025530
+      }
+    ],
+    "18. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794233030296
+      },
+      {
+        "executionId": "7a12ff81-e1da-48dc-9eed-1059b5b243fe",
+        "chatSessionId": "sess_e0df5e59-8323-4ab0-b8c7-c024c68de1be",
+        "timestamp": 1794233160362
+      }
+    ]
+  }
+}

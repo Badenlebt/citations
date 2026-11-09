@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchView rendering > matches the layout snapshot in the initial empty state 1`] = `
+"<section data-v-61d5b3d3="" class="search-view">
+  <h1 data-v-61d5b3d3="">Search</h1>
+  <form data-v-61d5b3d3="" class="search-view__form"><label data-v-61d5b3d3="" class="search-view__field" for="search-query"><span data-v-61d5b3d3="">Search term</span>
+      <div data-v-5cb6d7de="" data-v-61d5b3d3="" class="length-limited-input"><input data-v-5cb6d7de="" id="search-query" class="length-limited-input__field" type="text" maxlength="200" placeholder="Search quotes …" aria-describedby="search-query-counter" value=""><span data-v-5cb6d7de="" id="search-query-counter" class="length-limited-input__counter" aria-live="polite">0 / 200</span></div>
+    </label><label data-v-61d5b3d3="" class="search-view__field" for="search-language"><span data-v-61d5b3d3="">Filter by language</span><select data-v-61d5b3d3="" id="search-language">
+        <option data-v-61d5b3d3="" value="">All languages</option>
+      </select></label><button data-v-61d5b3d3="" type="submit" class="search-view__submit">Search</button></form>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</section>"
+`;
+
+exports[`SearchView rendering > matches the layout snapshot with results and links each item to its quote 1`] = `
+"<section data-v-61d5b3d3="" class="search-view">
+  <h1 data-v-61d5b3d3="">Search</h1>
+  <form data-v-61d5b3d3="" class="search-view__form"><label data-v-61d5b3d3="" class="search-view__field" for="search-query"><span data-v-61d5b3d3="">Search term</span>
+      <div data-v-5cb6d7de="" data-v-61d5b3d3="" class="length-limited-input"><input data-v-5cb6d7de="" id="search-query" class="length-limited-input__field" type="text" maxlength="200" placeholder="Search quotes …" aria-describedby="search-query-counter" value="freiheit"><span data-v-5cb6d7de="" id="search-query-counter" class="length-limited-input__counter" aria-live="polite">8 / 200</span></div>
+    </label><label data-v-61d5b3d3="" class="search-view__field" for="search-language"><span data-v-61d5b3d3="">Filter by language</span><select data-v-61d5b3d3="" id="search-language">
+        <option data-v-61d5b3d3="" value="">All languages</option>
+      </select></label><button data-v-61d5b3d3="" type="submit" class="search-view__submit">Search</button></form>
+  <!--v-if-->
+  <!--v-if-->
+  <p data-v-61d5b3d3="" class="search-view__count">1 results</p>
+  <ul data-v-61d5b3d3="" class="search-view__results">
+    <li data-v-61d5b3d3="" class="search-view__result"><a data-v-61d5b3d3="" class="search-view__result-link">Der Mensch ist zur Freiheit verurteilt.</a><span data-v-61d5b3d3="" class="search-view__result-meta"> — Jean-Paul Sartre (Deutsch) </span></li>
+  </ul>
+  <!--v-if-->
+</section>"
+`;

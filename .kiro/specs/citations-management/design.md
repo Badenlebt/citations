@@ -162,6 +162,18 @@ einen maschinenlesbaren `error`-Code und eine menschenlesbare Meldung. Statuscod
 
 ### Zitat-API
 
+**`GET /api/quotes`** (geschützt, Anf. 18) – Verwaltungs-Liste aller Zitate.
+- Query-Parameter: `page` (Standard 1), `pageSize` (1–100, Standard 20); ungültige
+  Werte werden auf den jeweiligen Standard geklemmt.
+- Nur mit gültiger Session erreichbar; ohne/ungültige Session → `401` `UNAUTHORIZED`
+  ohne Daten (18.6). Als schreibfremder, aber geschützter Lesezugriff läuft die
+  Anfrage über den Session-Guard (siehe Auth-API).
+- Antwort: `{ items: [{ id, text, languageId, languageName, source: { id, name } }],
+  total, page, pageSize }` (18.1, 18.2). Stabile, wiederholbare Reihenfolge nach
+  aufsteigender Kennung (18.3). Seite jenseits des letzten Ergebnisses → leere
+  `items` bei unveränderter `total` (18.4); keine Zitate → leere Liste, `total` 0
+  (18.5).
+
 **`GET /api/quotes/{id}`** (öffentlich, Anf. 4)
 - Liefert `{ id, text, languageId, languageName, source: { id, name, linkUrl } }` (4.1).
 - `linkUrl` wird fürs Frontend zur Darstellung als Verweis genutzt (4.3/4.4);
@@ -187,6 +199,18 @@ einen maschinenlesbaren `error`-Code und eine menschenlesbare Meldung. Statuscod
 - Vorhanden → entfernt und bestätigt (9.4); nicht vorhanden → `404` (9.5).
 
 ### Autoren-API
+
+**`GET /api/sources`** (geschützt, Anf. 19) – Verwaltungs-Liste aller Quellen.
+- Query-Parameter: `page` (Standard 1), `pageSize` (1–100, Standard 20); ungültige
+  Werte werden auf den jeweiligen Standard geklemmt.
+- Nur mit gültiger Session erreichbar; ohne/ungültige Session → `401` `UNAUTHORIZED`
+  ohne Daten (19.6). Läuft als geschützter Lesezugriff über den Session-Guard.
+- Antwort: `{ items: [{ id, name, isUnknown }], total, page, pageSize }` (19.1,
+  19.2). Stabile, wiederholbare Reihenfolge nach aufsteigender Kennung (19.3).
+  Seite jenseits des letzten Ergebnisses → leere `items` bei unveränderter `total`
+  (19.4). Da stets eine Unbekannt-Quelle existiert (13.1), enthält die erste Seite
+  mindestens diese (19.5). Diese Liste dient auch der Quellenauswahl beim Anlegen/
+  Bearbeiten eines Zitats (8.5).
 
 **`GET /api/sources/{id}`** (öffentlich, Anf. 5)
 - Liefert `{ id, name, birthDate, deathDate, description, linkUrl }`; nicht gesetzte
@@ -261,8 +285,14 @@ gemäß 6.4 abgelaufenes oder durch Logout beendetes Token gilt als nicht
 authentifiziert → `401` `UNAUTHORIZED`, keine Datenänderung (6.11, 7.1, 7.2); gültige
 Session → ausführen (7.4). Die Nicht-autorisiert-Antwort ist unabhängig davon
 identisch, ob die adressierte Ressource existiert, sodass keine Rückschlüsse auf den
-Datenbestand möglich sind (7.6). Lesende Such- und Einzelansichten sind ohne Session
-erreichbar (7.3).
+Datenbestand möglich sind (7.6). Neben den schreibenden Routen zählt der Guard auch die
+beiden Verwaltungs-Listen `GET /api/quotes` und `GET /api/sources` zu den vor
+Ausführung geschützten Routen und weist sie ohne gültige Session mit `401`
+`UNAUTHORIZED` ab (18.6, 19.6). Lesende Such- und Einzelansichten sind ohne Session
+erreichbar (7.3). Die Verwaltungs-Listen `GET /api/quotes` und `GET /api/sources`
+(Anf. 18, 19) sind dagegen geschützte Lesezugriffe: Der Guard behandelt sie wie
+eine schreibende Route und weist eine fehlende/ungültige Session mit `401`
+`UNAUTHORIZED` ab, bevor Daten gelesen werden (18.6, 19.6).
 
 ### Konfiguration & Credentials (Anf. 15, 17)
 
@@ -601,7 +631,9 @@ wird mit UNAUTHORIZED abgelehnt, und der gesamte Datenstand bleibt unverändert.
 *Für jeden* lesenden Endpunkt (Suche, Zufallszitat, Zitat- und Quellen-Einzelansicht,
 Sprachliste über `GET /api/languages`) gilt: Eine Anfrage ohne Session wird nicht mit
 UNAUTHORIZED abgelehnt; insbesondere ist die Sprachliste öffentlich ohne Session
-abrufbar.
+abrufbar. Die Verwaltungs-Listen `GET /api/quotes` und `GET /api/sources` (Anf. 18,
+19) zählen ausdrücklich NICHT zu diesen öffentlichen Lesezugriffen, sondern sind
+geschützt.
 
 **Validates: Requirements 7.3, 12.7**
 

@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------
+# Apache rules for the API directory (<web-root>/api/).
+#
+# Two jobs, independent of the web-root .htaccess so the API dir is protected
+# even if the parent rules change:
+#
+#   1. Credential protection (Req 15.5): deny direct public requests to any
+#      credential-bearing *.php config pattern (and .env). config.php normally
+#      lives ABOVE the web root, but if a config.php or config.*.php ever sits
+#      next to the code, a public URL must return no content and no values.
+#
+#   2. Front-controller routing (Req 16.3): route every other request under
+#      /api to index.php, which does its own method/path routing from PHP
+#      globals. Existing real files (e.g. assets) are still served directly.
+# ---------------------------------------------------------------------------
+
+Options -Indexes
+
+# Block credential files first, before any rewrite. 403, empty body.
+<FilesMatch "^(config(\..+)?\.php|\.env.*)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+
+    # Serve a real, existing file (e.g. index.php itself, static assets)
+    # directly; otherwise fall through to the front controller.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else under /api is handled by the PHP front controller.
+    RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+DirectoryIndex index.php

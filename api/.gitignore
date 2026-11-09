@@ -1,0 +1,12 @@
+/vendor/
+/.phpunit.cache/
+composer.lock
+
+# Credential sources must never be committed (Req 15.1, 15.4).
+config.php
+config.*.php
+.env
+.env.*
+# Keep the committed, secret-free template trackable.
+!config.php.example
+!.env.example

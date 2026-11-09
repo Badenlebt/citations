@@ -1,0 +1,49 @@
+<?php
+
+// Template for the setup configuration ("Einrichtungskonfiguration"),
+// Requirements 15.1, 15.4 and design "Konfiguration & Credentials".
+//
+// This file is a COMMITTED template and contains NO real secrets. The real
+// credential file must NEVER be committed (it is gitignored) and must NEVER
+// live under a publicly reachable path.
+//
+// How to use it:
+//   1. Copy this file to the real config path ABOVE the web root. The front
+//      controller (api/index.php) loads it from `__DIR__ . '/../config.php'`,
+//      i.e. one directory ABOVE the public `api/` web root:
+//
+//          <deploy-root>/config.php      <- real credentials live here
+//          <deploy-root>/api/index.php   <- public web root (served)
+//
+//      so a public URL can never reach config.php (15.1).
+//   2. Replace every REPLACE_ME placeholder below with real values, OR leave
+//      the file out entirely and provide the credentials via the environment
+//      variables listed next to each field.
+//
+// Environment-variable alternative (used when no readable config.php exists):
+//   CITATIONS_DB_HOST, CITATIONS_DB_PORT, CITATIONS_DB_NAME,
+//   CITATIONS_DB_USER, CITATIONS_DB_PASSWORD,
+//   CITATIONS_SESSION_DURATION_HOURS,
+//   CITATIONS_INITIAL_OPERATOR_USERNAME,
+//   CITATIONS_INITIAL_OPERATOR_PASSWORD_HASH
+
+return [
+    'db' => [
+        'host'     => 'REPLACE_ME_DB_HOST',   // e.g. 127.0.0.1 (CITATIONS_DB_HOST)
+        'port'     => null,                    // null => MariaDB default port (15.3)
+        'name'     => 'REPLACE_ME_DB_NAME',   // CITATIONS_DB_NAME
+        'user'     => 'REPLACE_ME_DB_USER',   // CITATIONS_DB_USER
+        'password' => 'REPLACE_ME_DB_PASSWORD',// CITATIONS_DB_PASSWORD
+    ],
+    'session' => [
+        'durationHours' => 24,                 // 1..168, default 24 (6.4)
+    ],
+    // Initial operator account (17.1). Username + password HASH only; a
+    // plaintext password is never stored here (17.4). Generate the hash with
+    // the CLI tool `bin/hash-password` (17.6). If username or hash is empty and
+    // no operator exists yet, no account is seeded (17.5).
+    'initialOperator' => [
+        'username'     => 'REPLACE_ME_OPERATOR_USERNAME',
+        'passwordHash' => '',                  // output of bin/hash-password
+    ],
+];

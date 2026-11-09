@@ -1,0 +1,27 @@
+# --- Credentials (Req 15.1, 15.4): never commit any credential source ---
+config.php
+**/config.php
+config.*.php
+**/config.*.php
+.env
+**/.env
+.env.*
+**/.env.*
+*.local
+# Keep committed, secret-free templates trackable despite the rules above.
+!config.php.example
+!**/config.php.example
+!.env.example
+!**/.env.example
+
+# --- PHP / Composer ---
+/api/vendor/
+/api/.phpunit.cache/
+/api/composer.lock
+
+# --- Frontend / Node ---
+/frontend/node_modules/
+/frontend/dist/
+
+# --- OS / editor ---
+.DS_Store

@@ -1,0 +1,32 @@
+# Local development database for the citations system.
+# Brings up a disposable MariaDB and auto-loads db/schema.sql + db/seed.sql on
+# first init (files in /docker-entrypoint-initdb.d run in alphabetical order, so
+# schema.sql precedes seed.sql). Not for production.
+#
+#   docker compose -f docker-compose.dev.yml up -d     # start
+#   docker compose -f docker-compose.dev.yml down       # stop (keep data)
+#   docker compose -f docker-compose.dev.yml down -v    # stop + wipe data
+services:
+  db:
+    image: mariadb:11
+    container_name: citations-dev-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: citations
+      MARIADB_USER: citations
+      MARIADB_PASSWORD: secret
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - citations-dev-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  citations-dev-data:

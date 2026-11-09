@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`QuoteDetailView rendering > matches the layout snapshot with a link URL 1`] = `
+"<section data-v-4efce4ae="" class="quote-detail-view">
+  <h1 data-v-4efce4ae="">Quote</h1>
+  <article data-v-4efce4ae="" class="quote-detail-view__content">
+    <blockquote data-v-4efce4ae="" class="quote-detail-view__text">Der Mensch ist zur Freiheit verurteilt.</blockquote>
+    <dl data-v-4efce4ae="" class="quote-detail-view__meta">
+      <dt data-v-4efce4ae="">Source</dt>
+      <dd data-v-4efce4ae="">
+        <!-- Source name as a link to the source page (Req 4.2). --><a data-v-4efce4ae="" class="quote-detail-view__source-link">Jean-Paul Sartre</a><!-- Optional external link only when a link URL is present (Req 4.3/4.4). --><span data-v-4efce4ae="" class="quote-detail-view__sep"> · </span><a data-v-4efce4ae="" class="quote-detail-view__external-link" href="https://example.org/sartre" target="_blank" rel="noopener noreferrer">External link</a>
+      </dd>
+      <dt data-v-4efce4ae="">Language</dt>
+      <dd data-v-4efce4ae="">Deutsch</dd>
+    </dl>
+  </article>
+  <p data-v-4efce4ae="" class="quote-detail-view__back"><a data-v-4efce4ae="">Back to search</a></p>
+</section>"
+`;
+
+exports[`QuoteDetailView rendering > matches the layout snapshot without a link URL 1`] = `
+"<section data-v-4efce4ae="" class="quote-detail-view">
+  <h1 data-v-4efce4ae="">Quote</h1>
+  <article data-v-4efce4ae="" class="quote-detail-view__content">
+    <blockquote data-v-4efce4ae="" class="quote-detail-view__text">Der Mensch ist zur Freiheit verurteilt.</blockquote>
+    <dl data-v-4efce4ae="" class="quote-detail-view__meta">
+      <dt data-v-4efce4ae="">Source</dt>
+      <dd data-v-4efce4ae="">
+        <!-- Source name as a link to the source page (Req 4.2). --><a data-v-4efce4ae="" class="quote-detail-view__source-link">Jean-Paul Sartre</a><!-- Optional external link only when a link URL is present (Req 4.3/4.4). -->
+        <!--v-if-->
+      </dd>
+      <dt data-v-4efce4ae="">Language</dt>
+      <dd data-v-4efce4ae="">Deutsch</dd>
+    </dl>
+  </article>
+  <p data-v-4efce4ae="" class="quote-detail-view__back"><a data-v-4efce4ae="">Back to search</a></p>
+</section>"
+`;

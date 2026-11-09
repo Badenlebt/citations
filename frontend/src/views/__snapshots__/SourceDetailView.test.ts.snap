@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SourceDetailView rendering > matches the layout snapshot with all optional fields set 1`] = `
+"<section data-v-e1d13cd4="" class="source-detail-view">
+  <h1 data-v-e1d13cd4="">Source</h1>
+  <article data-v-e1d13cd4="" class="source-detail-view__content">
+    <h2 data-v-e1d13cd4="" class="source-detail-view__name">Jean-Paul Sartre</h2>
+    <dl data-v-e1d13cd4="" class="source-detail-view__meta">
+      <dt data-v-e1d13cd4="">Date of birth</dt>
+      <dd data-v-e1d13cd4="">1905-06-21</dd>
+      <dt data-v-e1d13cd4="">Date of death</dt>
+      <dd data-v-e1d13cd4="">1980-04-15</dd>
+      <dt data-v-e1d13cd4="">Short description</dt>
+      <dd data-v-e1d13cd4="">Philosoph und Schriftsteller.</dd>
+      <dt data-v-e1d13cd4="">Link</dt>
+      <dd data-v-e1d13cd4=""><a data-v-e1d13cd4="" class="source-detail-view__external-link" href="https://example.org/sartre" target="_blank" rel="noopener noreferrer">https://example.org/sartre</a></dd>
+    </dl>
+    <!-- Link into a source-filtered, paginated search (Req 5.3). The source
+           id travels as a query param the search page reads. -->
+    <p data-v-e1d13cd4="" class="source-detail-view__quotes-link"><a data-v-e1d13cd4="">View quotes from this source</a></p>
+  </article>
+  <p data-v-e1d13cd4="" class="source-detail-view__back"><a data-v-e1d13cd4="">Back to search</a></p>
+</section>"
+`;
+
+exports[`SourceDetailView rendering > matches the layout snapshot with optional fields unset 1`] = `
+"<section data-v-e1d13cd4="" class="source-detail-view">
+  <h1 data-v-e1d13cd4="">Source</h1>
+  <article data-v-e1d13cd4="" class="source-detail-view__content">
+    <h2 data-v-e1d13cd4="" class="source-detail-view__name">Unbekannt</h2>
+    <dl data-v-e1d13cd4="" class="source-detail-view__meta">
+      <!--v-if-->
+      <!--v-if-->
+      <!--v-if-->
+      <!--v-if-->
+    </dl>
+    <!-- Link into a source-filtered, paginated search (Req 5.3). The source
+           id travels as a query param the search page reads. -->
+    <p data-v-e1d13cd4="" class="source-detail-view__quotes-link"><a data-v-e1d13cd4="">View quotes from this source</a></p>
+  </article>
+  <p data-v-e1d13cd4="" class="source-detail-view__back"><a data-v-e1d13cd4="">Back to search</a></p>
+</section>"
+`;
