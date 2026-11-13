@@ -257,21 +257,66 @@ void reload()
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the quote manager (Task 6.6).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Form, list and
+// error-state styling are sourced from the token palette — either via
+// build-checked SCSS variables (Req 1.5) or the :root-mirrored custom
+// properties (Req 1.4); no hardcoded colors/spacing (Req 2.2, 4.6, 5.5, 6.1,
+// 6.5, 6.6, 8.3). Grays (#ddd/#555) and error red (#b00020) are replaced.
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
 .quote-manager__form,
 .quote-manager__field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm, #{tokens.$spacing-sm});
 }
 
 .quote-manager__form {
   max-width: 40rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg, #{tokens.$spacing-lg});
 }
 
 .quote-manager__error {
-  color: #b00020;
+  // Status/error colour from the token palette (replaces #b00020).
+  color: var(--color-error, #{tokens.$color-error});
+}
+
+// Auswahlfelder (Quelle/Sprache) im dunklen Theme: gunmetal Flaeche, heller
+// Text, purple-medium Rahmen — konsistent zum Suchfeld. Zuvor waren die
+// <select> der Browser-Default (weisser Grund mit geerbtem weissen Text).
+.quote-manager__field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-sm, #{tokens.$spacing-sm});
+  color: var(--color-text, #{tokens.$color-text});
+  background-color: var(--color-background, #{tokens.$color-background});
+  border: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
+  border-radius: var(--radius-sm, #{tokens.$radius-sm});
+  font: inherit;
+  cursor: pointer;
+
+  @include mix.transition(border-color);
+
+  &:hover {
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, #{tokens.$color-primary});
+    outline-offset: 2px;
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  // Optionsliste ebenfalls im dunklen Theme.
+  option {
+    color: var(--color-text, #{tokens.$color-text});
+    background-color: var(--color-background, #{tokens.$color-background});
+  }
 }
 
 .quote-manager__list {
@@ -279,24 +324,34 @@ void reload()
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  // 0.75rem has no single token; composed from the spacing scale (sm + xs).
+  gap: calc(
+    var(--spacing-sm, #{tokens.$spacing-sm}) +
+      var(--spacing-xs, #{tokens.$spacing-xs})
+  );
 }
 
 .quote-manager__item {
-  border: 1px solid #ddd;
-  border-radius: 0.375rem;
-  padding: 0.75rem;
+  // Subtle divider in the secondary purple token (replaces #ddd).
+  border: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
+  border-radius: var(--radius-sm, #{tokens.$radius-sm});
+  // 0.75rem has no single token; composed from the spacing scale (sm + xs).
+  padding: calc(
+    var(--spacing-sm, #{tokens.$spacing-sm}) +
+      var(--spacing-xs, #{tokens.$spacing-xs})
+  );
 }
 
 .quote-manager__item-meta {
   font-size: 0.85em;
-  color: #555;
-  margin: 0.25rem 0;
+  // Muted secondary text via the purple-bright token (replaces #555).
+  color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+  margin: var(--spacing-xs, #{tokens.$spacing-xs}) 0;
 }
 
 .quote-manager__item-actions,
 .quote-manager__form-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-sm, #{tokens.$spacing-sm});
 }
 </style>

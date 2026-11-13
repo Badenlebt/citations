@@ -1,0 +1,847 @@
+{
+  "pbtResults": {
+    "1.5 Property-Test: Kontrastverhältnisse erfüllen WCAG AA": {
+      "status": "passed",
+      "lastRunTimestamp": 1794303197045
+    }
+  },
+  "executionHistory": {
+    "1.1 Dev-Abhängigkeiten `sass` und `fast-check` ergänzen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333736
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302344383
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302967302
+      }
+    ],
+    "1.2 Design-Tokens in `frontend/src/scss/_variables.scss` definieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333782
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302345821
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302968238
+      }
+    ],
+    "1.3 Mixins in `frontend/src/scss/_mixins.scss` anlegen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333816
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302346487
+      },
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302969253
+      }
+    ],
+    "1.4 Property-Test: Statusfarben sind unterscheidbar": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333841
+      },
+      {
+        "executionId": "8f0089a7-00e8-4eff-ab82-13dff8ae039a",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303035535
+      },
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303426496
+      }
+    ],
+    "1.5 Property-Test: Kontrastverhältnisse erfüllen WCAG AA": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333867
+      },
+      {
+        "executionId": "8f0089a7-00e8-4eff-ab82-13dff8ae039a",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303036927
+      },
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303427439
+      }
+    ],
+    "2.1 `frontend/src/scss/_base.scss` mit Font, Reset und globaler Typografie erstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333892
+      },
+      {
+        "executionId": "8f0089a7-00e8-4eff-ab82-13dff8ae039a",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303038351
+      },
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303428710
+      }
+    ],
+    "2.2 `frontend/src/scss/_utilities.scss` mit Container- und Abstands-Hilfsklassen erstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333922
+      },
+      {
+        "executionId": "8f0089a7-00e8-4eff-ab82-13dff8ae039a",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303039218
+      },
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303438521
+      },
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303575959
+      }
+    ],
+    "2.3 `frontend/src/scss/main.scss` als Aggregator anlegen und in `frontend/src/main.ts` einmalig importieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333951
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303606324
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303825443
+      }
+    ],
+    "2.4 Property-Test: Typografie wird typgerecht aufgelöst": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302333975
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303607347
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303826853
+      }
+    ],
+    "2.5 Property-Test: Token-Änderung wirkt konsistent überall": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334000
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303608366
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303827821
+      }
+    ],
+    "3. Checkpoint - Token-Schicht und Basis verifizieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334026
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303885444
+      }
+    ],
+    "4.1 `AppHeader`/MenuBar-Komponente erstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334051
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303892753
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794304089890
+      }
+    ],
+    "4.2 Compact-on-scroll und responsives Verhalten im `AppHeader` umsetzen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334075
+      },
+      {
+        "executionId": "875d518f-07c5-4de5-bead-3b794a386fab",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794306614161
+      },
+      {
+        "executionId": "875d518f-07c5-4de5-bead-3b794a386fab",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794306734480
+      }
+    ],
+    "4.3 `App.vue` auf neue Layout-Struktur umstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334104
+      },
+      {
+        "executionId": "875d518f-07c5-4de5-bead-3b794a386fab",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794306615124
+      },
+      {
+        "executionId": "875d518f-07c5-4de5-bead-3b794a386fab",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794306735573
+      }
+    ],
+    "4.4 `AppFooter`-Komponente erstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334131
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303893414
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794304091256
+      }
+    ],
+    "4.5 Optionale `ScrollToTop`-Komponente erstellen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334155
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303894857
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794304092193
+      }
+    ],
+    "4.6 `LanguageSwitcher.vue` token-basiert restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334182
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303895717
+      },
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794304093368
+      }
+    ],
+    "4.7 Beispieltest: fixiertes Header-Layout und Inhaltsabstand": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334210
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321302277
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321501638
+      }
+    ],
+    "4.8 Beispieltest: Footer-Spaltenzahl je Breakpoint und Container-Breite": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334233
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321303590
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321500506
+      }
+    ],
+    "4.9 Property-Test: lang-Attribut folgt der aktiven Locale": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334258
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321304435
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321499489
+      }
+    ],
+    "5. Checkpoint - Layout-Komponenten verifizieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334283
+      },
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321517352
+      }
+    ],
+    "6.1 `SearchView.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334313
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322197753
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322322521
+      }
+    ],
+    "6.2 `QuoteDetailView.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334339
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322199025
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322323982
+      }
+    ],
+    "6.3 `SourceDetailView.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334365
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322200004
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322324819
+      }
+    ],
+    "6.4 `LengthLimitedInput.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334389
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322201386
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322326253
+      }
+    ],
+    "6.5 `AdminView.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334413
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322202065
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322326866
+      }
+    ],
+    "6.6 Admin-Teilkomponenten restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334434
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322331417
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322491014
+      }
+    ],
+    "6.7 `NotFoundView.vue` restylen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334458
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322332132
+      },
+      {
+        "executionId": "f827902b-4605-40d0-8c88-0151c4bb9cea",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794322490385
+      }
+    ],
+    "6.8 Property-Test: Alle Gestaltungswerte stammen aus Tokens": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334483
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382854626
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475542737
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475573016
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488355379
+      }
+    ],
+    "6.9 Property-Test: Gleiche Elementtypen sind identisch gestaltet": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334507
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382855509
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475544177
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475573052
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488356699
+      }
+    ],
+    "6.10 Beispieltest: Interaktionszustände und Fehler-/Fallback-Verhalten": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334531
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382857005
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475545386
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475573094
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488358144
+      }
+    ],
+    "7. Checkpoint - View-Restyling verifizieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334555
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382850263
+      }
+    ],
+    "8.1 Property-Test: Fokusindikatoren erfüllen Kontrast": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334590
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382858371
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475540404
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475553623
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488359056
+      }
+    ],
+    "8.2 Property-Test: Kein horizontaler Überlauf im Mobilbereich": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334614
+      },
+      {
+        "executionId": "a171eee8-cb39-4373-b33c-8d8e095d4a09",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794382859251
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475541823
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794475572969
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488360074
+      }
+    ],
+    "8.3 Property-Test: Semantik und ARIA bleiben äquivalent": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334639
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488369325
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495192483
+      }
+    ],
+    "8.4 Property-Test: Tastatur-Erreichbarkeit aller interaktiven Elemente": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334664
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488370718
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495191016
+      }
+    ],
+    "9.1 Property-Test: Routen- und View-Menge bleibt unverändert": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334691
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488371669
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495194783
+      }
+    ],
+    "9.2 Property-Test: i18n-Schlüssel bleiben erhalten": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334716
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488373198
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495194006
+      }
+    ],
+    "9.3 Integrationstest: Build bricht bei undefiniertem Token ab": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334743
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488374042
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495195794
+      }
+    ],
+    "9.4 Integrationstest: Font-Konfiguration prüfen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334771
+      },
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495211958
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559647613
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559845140
+      }
+    ],
+    "9.5 Verhaltenstest: LanguageSwitcher unverändert": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334800
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559648340
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559845496
+      }
+    ],
+    "10.1 Vitest-Snapshots bewusst neu generieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334824
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559854095
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794564911714
+      }
+    ],
+    "10.2 Vollständige Testsuite ausführen und Funktionserhalt bestätigen": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334851
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794564919612
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794587430759
+      }
+    ],
+    "11. Finaler Checkpoint - Gesamtergebnis verifizieren": [
+      {
+        "executionId": "1bb0c3aa-0d6c-4156-8aea-294408a75332",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794302334874
+      },
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794587435610
+      }
+    ],
+    "1. Werkzeug- und SCSS-Token-Schicht aufsetzen": [
+      {
+        "executionId": "0369ce19-f421-499c-b75c-f897aef515cf",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303427476
+      }
+    ],
+    "2. Globale Basis, Typografie und Utilities aufbauen": [
+      {
+        "executionId": "12b7f99c-a60d-4cb4-aeca-4a977c953dc4",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794303827854
+      }
+    ],
+    "4. Layout-Komponenten erstellen und einbinden": [
+      {
+        "executionId": "f78ff12c-e1b2-4050-8d9a-227f34550ec8",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794321501669
+      }
+    ],
+    "6. Bestehende Views token-basiert restylen (ohne Markup-/Logik-/i18n-Änderung)": [
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794488358181
+      }
+    ],
+    "8. Barrierefreiheits- und Responsiv-Eigenschaften absichern": [
+      {
+        "executionId": "77cfa965-d84e-41b5-9299-86cd222405d9",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794495192536
+      }
+    ],
+    "9. Funktionserhalt-Invarianten und Build-/Font-Integration absichern": [
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794559845522
+      }
+    ],
+    "10. Snapshots regenerieren und Gesamt-Testsuite verifizieren": [
+      {
+        "executionId": "c3306021-e60b-432f-948a-dcdae61a8ced",
+        "chatSessionId": "sess_3a8b26ef-f095-400a-809c-ad944e6cd478",
+        "timestamp": 1794587430802
+      }
+    ]
+  }
+}

@@ -321,29 +321,80 @@ void loadLanguages()
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the search view (Task 6.1, Feinschliff).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Values are
+// sourced either via build-checked SCSS variables (Req 1.5) or the
+// :root-mirrored custom properties (Req 1.4); no hardcoded colors/spacing
+// (Req 1.3, 2.2, 4.6, 5.2, 6.1, 6.6, 8.1, 8.3).
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
+// Vertikaler Rhythmus des gesamten View-Inhalts: gleichmaessige Abstaende
+// zwischen Ueberschrift, Formular, Status und Ergebnissen.
+.search-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg, #{tokens.$spacing-lg});
+}
+
 .search-view__form {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: var(--spacing-md, #{tokens.$spacing-md});
 }
 
 .search-view__field {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs});
+}
+
+// Das Suchfeld traegt den Hauptanteil der Breite und waechst mit dem
+// verfuegbaren Platz; das Sprachfilter-Feld behaelt seine Inhaltsbreite. So
+// fuellt die Formularzeile die Container-Breite aus, statt am linken Rand
+// zusammengedraengt zu wirken. Es werden keine festen Laengen eingefuehrt
+// (keine Hartkodierung ausserhalb der Tokens, Req 1.3).
+.search-view__field:first-of-type {
+  flex: 1 1 auto;
+}
+
+.search-view__field + .search-view__field {
+  flex: 0 0 auto;
+}
+
+// Sprachfilter-Auswahlfeld token-basiert (harmoniert mit den Eingabefeldern).
+.search-view__field select {
+  padding: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-sm, #{tokens.$spacing-sm});
+  color: var(--color-text, #{tokens.$color-text});
+  background-color: var(--color-background, #{tokens.$color-background});
+  border: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
+  border-radius: var(--radius-sm, #{tokens.$radius-sm});
+  cursor: pointer;
+
+  @include mix.transition(border-color);
+
+  &:hover {
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
 }
 
 .search-view__source-filter {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-sm, #{tokens.$spacing-sm});
 }
 
 .search-view__status--error {
-  color: #b00020;
+  // Status/error colour from the token palette (replaces #b00020).
+  color: var(--color-error, #{tokens.$color-error});
+}
+
+.search-view__count {
+  color: var(--color-purple-bright, #{tokens.$color-purple-bright});
 }
 
 .search-view__results {
@@ -351,18 +402,23 @@ void loadLanguages()
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  // 0.75rem has no single token; composed from the spacing scale (sm + xs).
+  gap: calc(
+    var(--spacing-sm, #{tokens.$spacing-sm}) +
+      var(--spacing-xs, #{tokens.$spacing-xs})
+  );
 }
 
 .search-view__result-meta {
-  color: #666;
+  // Secondary/meta text colour (replaces the #666 grey).
+  color: var(--color-purple-bright, #{tokens.$color-purple-bright});
   font-size: 0.9em;
 }
 
 .search-view__pagination {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: var(--spacing-md, #{tokens.$spacing-md});
+  margin-top: var(--spacing-md, #{tokens.$spacing-md});
 }
 </style>

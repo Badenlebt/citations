@@ -1,8 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { App } from 'vue'
+import { createRouter, createMemoryHistory, type Router } from 'vue-router'
 import type { Language, SourceListItem, SourceListResponse } from '@/api'
 import { createI18n, installI18n } from '@/i18n'
+import { routes } from '@/router'
 
 // Pin the UI locale to German for deterministic labels (admin tabs etc.).
 const i18nPlugin = {
@@ -46,8 +48,15 @@ function makeSource(id: number, isUnknown = false): SourceListItem {
   return { id, name: isUnknown ? 'unbekannt' : `Quelle ${id}`, isUnknown }
 }
 
+// AdminView now derives its active tab from the route query, so the mounted
+// tree needs a router in context.
+function makeRouter(): Router {
+  return createRouter({ history: createMemoryHistory(), routes })
+}
+
 function mountView() {
-  return mount(AdminView, { global: { plugins: [i18nPlugin] } })
+  const router = makeRouter()
+  return mount(AdminView, { global: { plugins: [router, i18nPlugin] } })
 }
 
 describe('AdminView source list paging (Req 19.1)', () => {

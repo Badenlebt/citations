@@ -70,21 +70,73 @@ async function onSubmit(): Promise<void> {
   </form>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the admin login form (Task 6.6, Feinschliff).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Form layout,
+// the input fields and the validation/error state are sourced from the token
+// palette — either via build-checked SCSS variables (Req 1.5) or the
+// :root-mirrored custom properties (Req 1.4); no hardcoded colors/spacing
+// (Req 2.2, 6.1, 6.6, 8.3).
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
 .admin-login {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  // 0.75rem has no single token; composed from the spacing scale (sm + xs).
+  gap: calc(
+    var(--spacing-sm, #{tokens.$spacing-sm}) +
+      var(--spacing-xs, #{tokens.$spacing-xs})
+  );
   max-width: 24rem;
 }
 
 .admin-login__field {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs});
+}
+
+// Eingabefelder im dunklen Theme: gunmetal Flaeche, heller Text, purple-medium
+// Rahmen — identisch zum Suchfeld-Muster. Zuvor waren die Felder der
+// Browser-Default (weisser Grund mit geerbtem weissen Text, unlesbar).
+.admin-login__field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-sm, #{tokens.$spacing-sm});
+  color: var(--color-text, #{tokens.$color-text});
+  background-color: var(--color-background, #{tokens.$color-background});
+  border: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
+  border-radius: var(--radius-sm, #{tokens.$radius-sm});
+  font: inherit;
+
+  @include mix.transition(border-color, background-color);
+
+  &::placeholder {
+    color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  // Sichtbarer, token-basierter Fokusindikator (Kontrast >= 3:1, Req 9.4).
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, #{tokens.$color-primary});
+    outline-offset: 2px;
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
 .admin-login__error {
-  color: #b00020;
+  // Status/error colour from the token palette (replaces #b00020).
+  color: var(--color-error, #{tokens.$color-error});
 }
 </style>

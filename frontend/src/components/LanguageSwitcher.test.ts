@@ -46,9 +46,15 @@ describe('LanguageSwitcher', () => {
     const i18n = createI18n('de')
     const wrapper = mountWith(LanguageSwitcher, i18n)
 
-    expect(wrapper.text()).toContain('Sprache der Oberfläche')
-    const optionTexts = wrapper.findAll('option').map((o) => o.text())
-    expect(optionTexts).toEqual(['Deutsch', 'Englisch'])
+    // The group carries the accessible name from the existing i18n key, and
+    // each locale is a toggle button labelled with its catalog name.
+    expect(wrapper.get('.language-switcher').attributes('aria-label')).toBe(
+      'Sprache der Oberfläche',
+    )
+    const optionLabels = wrapper
+      .findAll('.language-switcher__option')
+      .map((b) => b.attributes('aria-label'))
+    expect(optionLabels).toEqual(['Deutsch', 'Englisch'])
   })
 
   it('re-renders texts in the chosen catalog after setLocale', async () => {
@@ -58,34 +64,46 @@ describe('LanguageSwitcher', () => {
     i18n.setLocale('en')
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.text()).toContain('Interface language')
-    expect(wrapper.findAll('option').map((o) => o.text())).toEqual([
-      'German',
-      'English',
-    ])
+    expect(wrapper.get('.language-switcher').attributes('aria-label')).toBe(
+      'Interface language',
+    )
+    expect(
+      wrapper
+        .findAll('.language-switcher__option')
+        .map((b) => b.attributes('aria-label')),
+    ).toEqual(['German', 'English'])
 
     i18n.setLocale('de')
     await wrapper.vm.$nextTick()
-    expect(wrapper.text()).toContain('Sprache der Oberfläche')
+    expect(wrapper.get('.language-switcher').attributes('aria-label')).toBe(
+      'Sprache der Oberfläche',
+    )
   })
 
-  it('updates the selected option to reflect the active locale', async () => {
+  it('marks the active locale toggle to reflect the active locale', async () => {
     const i18n = createI18n('de')
     const wrapper = mountWith(LanguageSwitcher, i18n)
-    const select = wrapper.get('select')
+    const pressed = () =>
+      wrapper
+        .findAll('.language-switcher__option')
+        .find((b) => b.attributes('aria-pressed') === 'true')
+        ?.text()
 
-    expect((select.element as HTMLSelectElement).value).toBe('de')
+    expect(pressed()).toBe('DE')
 
     i18n.setLocale('en')
     await wrapper.vm.$nextTick()
-    expect((select.element as HTMLSelectElement).value).toBe('en')
+    expect(pressed()).toBe('EN')
   })
 
   it('switches the locale when the user picks an option', async () => {
     const i18n = createI18n('de')
     const wrapper = mountWith(LanguageSwitcher, i18n)
 
-    await wrapper.get('select').setValue('en')
+    const enButton = wrapper
+      .findAll('.language-switcher__option')
+      .find((b) => b.text() === 'EN')
+    await enButton!.trigger('click')
 
     expect(i18n.locale.value).toBe('en')
   })

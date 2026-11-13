@@ -73,21 +73,31 @@ async function onSubmit(): Promise<void> {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the language manager (Task 6.6).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Form, list and
+// error-state styling are sourced from the token palette — either via
+// build-checked SCSS variables (Req 1.5) or the :root-mirrored custom
+// properties (Req 1.4); no hardcoded colors/spacing (Req 2.2, 4.6, 5.5, 6.1,
+// 6.6, 8.3). Error red (#b00020) is replaced by the status token.
+@use '@/scss/variables' as tokens;
+
 .language-manager__form,
 .language-manager__field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm, #{tokens.$spacing-sm});
 }
 
 .language-manager__form {
   max-width: 28rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg, #{tokens.$spacing-lg});
 }
 
 .language-manager__error {
-  color: #b00020;
+  // Status/error colour from the token palette (replaces #b00020).
+  color: var(--color-error, #{tokens.$color-error});
 }
 
 .language-manager__list {
@@ -95,6 +105,6 @@ async function onSubmit(): Promise<void> {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs});
 }
 </style>

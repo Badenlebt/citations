@@ -8,7 +8,8 @@
 // — a 401 drops back to the login form. Likewise, any `unauthorized` event a
 // manager raises after its session expires returns the UI to the login gate
 // (Req 18.6 / 19.6).
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { api, ApiError, type Language, type SourceListItem } from '@/api'
 import { useI18n } from '@/i18n'
 import AdminLogin from '@/components/admin/AdminLogin.vue'
@@ -19,9 +20,30 @@ import LanguageManager from '@/components/admin/LanguageManager.vue'
 type Tab = 'quotes' | 'sources' | 'languages'
 
 const i18n = useI18n()
+const route = useRoute()
+const router = useRouter()
+
+const TABS: readonly Tab[] = ['quotes', 'sources', 'languages']
+
+function isTab(value: unknown): value is Tab {
+  return typeof value === 'string' && (TABS as readonly string[]).includes(value)
+}
 
 const authenticated = ref(false)
-const activeTab = ref<Tab>('quotes')
+
+// The active tab is derived from the `tab` query param so the footer (and any
+// bookmark) can deep-link to a specific management section; it falls back to
+// the quotes tab. Selecting a tab writes the param back to the URL.
+const activeTab = computed<Tab>(() =>
+  isTab(route.query.tab) ? route.query.tab : 'quotes',
+)
+
+function selectTab(tab: Tab): void {
+  if (activeTab.value === tab) {
+    return
+  }
+  void router.push({ name: route.name ?? undefined, query: { ...route.query, tab } })
+}
 const sources = ref<SourceListItem[]>([])
 const languages = ref<Language[]>([])
 const loadError = ref<string | null>(null)
@@ -123,25 +145,28 @@ void (async () => {
       <nav class="admin-view__tabs" :aria-label="i18n.t('admin.heading')">
         <button
           type="button"
+          class="admin-view__tab"
           :class="{ 'admin-view__tab--active': activeTab === 'quotes' }"
           :aria-pressed="activeTab === 'quotes'"
-          @click="activeTab = 'quotes'"
+          @click="selectTab('quotes')"
         >
           {{ i18n.t('admin.tabQuotes') }}
         </button>
         <button
           type="button"
+          class="admin-view__tab"
           :class="{ 'admin-view__tab--active': activeTab === 'sources' }"
           :aria-pressed="activeTab === 'sources'"
-          @click="activeTab = 'sources'"
+          @click="selectTab('sources')"
         >
           {{ i18n.t('admin.tabSources') }}
         </button>
         <button
           type="button"
+          class="admin-view__tab"
           :class="{ 'admin-view__tab--active': activeTab === 'languages' }"
           :aria-pressed="activeTab === 'languages'"
-          @click="activeTab = 'languages'"
+          @click="selectTab('languages')"
         >
           {{ i18n.t('admin.tabLanguages') }}
         </button>
@@ -174,7 +199,17 @@ void (async () => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the admin view orchestrator (Task 6.5).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Form, tab and
+// table styling plus validation/error states are sourced from the token
+// palette — either via build-checked SCSS variables (Req 1.5) or the
+// :root-mirrored custom properties (Req 1.4); no hardcoded colors/spacing
+// (Req 1.3, 2.2, 4.6, 5.5, 6.1, 6.5, 6.6, 8.1, 8.3).
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
 .admin-view {
   max-width: 48rem;
 }
@@ -183,31 +218,53 @@ void (async () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: var(--spacing-md, #{tokens.$spacing-md});
+  margin-bottom: var(--spacing-md, #{tokens.$spacing-md});
 }
 
 .admin-view__tabs {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #ddd;
+  gap: var(--spacing-sm, #{tokens.$spacing-sm});
+  margin-bottom: var(--spacing-lg, #{tokens.$spacing-lg});
+  border-bottom: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
 }
 
-.admin-view__tabs button {
+.admin-view__tab {
   border: none;
   background: none;
-  padding: 0.5rem 0.75rem;
+  // 0.75rem has no single token; composed from the spacing scale (sm + xs).
+  padding: var(--spacing-sm, #{tokens.$spacing-sm})
+    calc(
+      var(--spacing-sm, #{tokens.$spacing-sm}) +
+        var(--spacing-xs, #{tokens.$spacing-xs})
+    );
+  // Inaktive Reiter dezent (gedaempfte Sekundaerfarbe), damit der aktive Reiter
+  // klar heraussticht.
+  color: var(--color-purple-bright, #{tokens.$color-purple-bright});
   cursor: pointer;
   border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font-weight: var(--font-weight-heading, #{tokens.$font-weight-heading});
+  @include mix.transition(color, border-color);
+
+  &:hover {
+    color: var(--color-primary, #{tokens.$color-primary});
+  }
 }
 
 .admin-view__tab--active {
-  border-bottom-color: #333;
-  font-weight: 600;
+  // Aktiver Reiter: Akzentfarbe fuer Text UND 2px-Unterstrich, klar sichtbar
+  // gegenueber den gedaempften inaktiven Reitern.
+  color: var(--color-primary, #{tokens.$color-primary});
+  border-bottom-color: var(--color-primary, #{tokens.$color-primary});
+
+  &:hover {
+    color: var(--color-primary, #{tokens.$color-primary});
+  }
 }
 
 .admin-view__error {
-  color: #b00020;
+  // Status/error colour from the token palette (replaces #b00020).
+  color: var(--color-error, #{tokens.$color-error});
 }
 </style>

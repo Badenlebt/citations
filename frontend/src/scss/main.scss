@@ -1,0 +1,26 @@
+// =============================================================================
+// main.scss — Aggregator des Design-Systems — UI-Redesign (Citations)
+//
+// Buendelt die SCSS-Teildateien des Design-Systems per `@use` und wird genau
+// einmal in `frontend/src/main.ts` importiert, sodass Tokens und globale Stile
+// anwendungsweit gelten (Req 5.1). Die zentrale Token-Definition ist damit die
+// alleinige Quelle aller Gestaltungswerte (Req 1.1).
+//
+// @use-Reihenfolge (wichtig):
+//   1. `variables` — reine Token-/Variablendefinitionen (CSS-Ausgabe nur via
+//      :root-Custom-Properties)
+//   2. `mixins`    — reine Mixin-Definitionen (keine eigene CSS-Ausgabe)
+//   3. `base`      — Reset, Webschrift und globale Typografie (erzeugt CSS)
+//   4. `utilities` — Container- und Abstands-Hilfsklassen (erzeugt CSS)
+//
+// Partials ohne eigene CSS-Ausgabe stehen bewusst zuerst; `base` und
+// `utilities` erzeugen die tatsaechliche, in der Ausgabereihenfolge
+// relevante CSS-Ausgabe.
+//
+// _Requirements: 1.1, 5.1
+// =============================================================================
+
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'utilities';

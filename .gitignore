@@ -25,3 +25,6 @@ config.*.php
 
 # --- OS / editor ---
 .DS_Store
+
+# --- Kiro (lokales Steering, nicht teilen) ---
+.kiro/steering/git-workflow-local.md

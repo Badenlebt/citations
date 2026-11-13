@@ -114,25 +114,63 @@ watch(() => props.id, load, { immediate: true })
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the quote single view (Task 6.2).
+// Markup, BEM class names, props, logic, routes and i18n keys remain unchanged;
+// only the presentation is driven by design tokens. Values are sourced either
+// via build-checked SCSS variables (Req 1.5) or the :root-mirrored custom
+// properties (Req 1.4); no hardcoded colors/spacing (Req 1.3, 2.2, 4.6, 5.3,
+// 6.1, 8.1, 8.3). Links use the primary/accent color (#C15BEB) with unified
+// 0.3s ease transitions via the transition() mixin.
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
+.quote-detail-view__status {
+  color: var(--color-text, #{tokens.$color-text});
+}
+
 .quote-detail-view__text {
-  font-size: 1.25rem;
-  margin: 1rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid #ccc;
+  font-size: var(--font-size-h5, #{tokens.$font-size-h5});
+  margin: var(--spacing-md, #{tokens.$spacing-md}) 0;
+  padding-left: var(--spacing-md, #{tokens.$spacing-md});
+  border-left: 3px solid var(--color-primary, #{tokens.$color-primary});
 }
 
 .quote-detail-view__meta {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 0.25rem 1rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-md, #{tokens.$spacing-md});
 }
 
 .quote-detail-view__meta dt {
-  font-weight: 600;
+  font-weight: var(--font-weight-heading, #{tokens.$font-weight-heading});
+}
+
+.quote-detail-view__source-link,
+.quote-detail-view__external-link {
+  color: var(--color-primary, #{tokens.$color-primary});
+  @include mix.transition(color);
+
+  &:hover {
+    color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+  }
+}
+
+.quote-detail-view__sep {
+  color: var(--color-text, #{tokens.$color-text});
 }
 
 .quote-detail-view__back {
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-lg, #{tokens.$spacing-lg});
+
+  a {
+    color: var(--color-primary, #{tokens.$color-primary});
+    @include mix.transition(color);
+
+    &:hover {
+      color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+    }
+  }
 }
 </style>

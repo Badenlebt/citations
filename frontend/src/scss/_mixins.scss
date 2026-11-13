@@ -1,0 +1,59 @@
+// =============================================================================
+// Mixins
+// -----------------------------------------------------------------------------
+// Zentrale, wiederverwendbare SCSS-Mixins des Design-Systems.
+// Die Breakpoint-Werte stammen ausschliesslich aus den Tokens in
+// `_variables.scss` (Task 1.2) und werden hier per `@use` bezogen.
+// Erwarteter Kontrakt aus `_variables.scss`:
+//   $breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+// =============================================================================
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'variables' as tokens;
+
+// -----------------------------------------------------------------------------
+// respond-to($breakpoint)
+// -----------------------------------------------------------------------------
+// Erzeugt eine `min-width`-Media-Query fuer einen benannten Breakpoint aus der
+// Breakpoint-Skala (sm / md / lg / xl). Mobile-first: Stile innerhalb des
+// Mixins gelten ab der angegebenen Viewport-Breite aufwaerts.
+//
+// Verwendung:
+//   .footer { @include respond-to(md) { grid-template-columns: repeat(4, 1fr); } }
+//
+// @param {String} $breakpoint - Name des Breakpoints (sm | md | lg | xl)
+@mixin respond-to($breakpoint) {
+  @if map.has-key(tokens.$breakpoints, $breakpoint) {
+    @media (min-width: map.get(tokens.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "respond-to(): unbekannter Breakpoint '#{$breakpoint}'. "
+      + "Gueltig sind: #{map.keys(tokens.$breakpoints)}.";
+  }
+}
+
+// -----------------------------------------------------------------------------
+// transition($props...)
+// -----------------------------------------------------------------------------
+// Erzeugt einheitliche Uebergaenge mit `0.3s ease` fuer eine oder mehrere
+// CSS-Eigenschaften. Ohne Argument wird `all 0.3s ease` gesetzt (Req 6.2).
+//
+// Verwendung:
+//   a        { @include transition(color); }
+//   .btn     { @include transition(background-color, border-color); }
+//   .overlay { @include transition; } // -> all 0.3s ease
+//
+// @param {List} $props - zu animierende CSS-Eigenschaften
+@mixin transition($props...) {
+  @if list.length($props) == 0 {
+    transition: all 0.3s ease;
+  } @else {
+    $transitions: ();
+    @each $prop in $props {
+      $transitions: list.append($transitions, #{$prop} 0.3s ease, comma);
+    }
+    transition: $transitions;
+  }
+}

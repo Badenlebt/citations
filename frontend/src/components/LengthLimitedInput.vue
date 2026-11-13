@@ -102,26 +102,72 @@ function onInput(event: Event): void {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the length-limited input/textarea (Task 6.4).
+// Markup, BEM class names, props, logic (length enforcement/counter), events
+// and i18n keys remain unchanged; only the presentation is driven by design
+// tokens. Values are sourced either via build-checked SCSS variables (Req 1.5)
+// or the :root-mirrored custom properties (Req 1.4); no hardcoded
+// colors/spacing (Req 1.3, 6.1, 6.6). Transitions use the transition() mixin
+// (Req 6.2).
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
 .length-limited-input {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs});
 }
 
 .length-limited-input__field {
   width: 100%;
   box-sizing: border-box;
+  padding: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-sm, #{tokens.$spacing-sm});
+  color: var(--color-text, #{tokens.$color-text});
+  background-color: var(--color-background, #{tokens.$color-background});
+  border: 1px solid var(--color-purple-medium, #{tokens.$color-purple-medium});
+  border-radius: var(--radius-sm, #{tokens.$radius-sm});
+  font: inherit;
+
+  // Unified 0.3s ease transitions for interactive feedback (Req 6.2).
+  @include mix.transition(border-color, box-shadow, background-color);
+
+  &::placeholder {
+    color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  // Visible, token-based focus indicator with sufficient contrast (Req 6.4):
+  // the purple-light outline (#C15BEB) against the gunmetal background exceeds
+  // the 3:1 threshold required for graphical/UI controls.
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, #{tokens.$color-primary});
+    outline-offset: 2px;
+    border-color: var(--color-primary, #{tokens.$color-primary});
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
 .length-limited-input__counter {
   align-self: flex-end;
-  font-size: 0.8em;
-  color: #666;
+  font-size: var(--font-size-h6, #{tokens.$font-size-h6});
+  color: var(--color-purple-bright, #{tokens.$color-purple-bright});
+
+  @include mix.transition(color);
 }
 
+// Error state once the configured maximum length is reached (Req 6.6):
+// the status error token signals the limit has been hit.
 .length-limited-input__counter--at-limit {
-  color: #b00020;
-  font-weight: 600;
+  color: var(--color-error, #{tokens.$color-error});
+  font-weight: var(--font-weight-heading, #{tokens.$font-weight-heading});
 }
 </style>

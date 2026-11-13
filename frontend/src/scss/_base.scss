@@ -1,0 +1,185 @@
+// =============================================================================
+// Globale Basis & Typografie — UI-Redesign (Citations)
+//
+// Enthaelt die Webschrift-Einbindung (Nunito), einen CSS-Reset, die globale
+// Fliesstext- und Ueberschriften-Typografie, Link-Gestaltung und einen Divider.
+// Alle Gestaltungswerte werden ausschliesslich aus Tokens bezogen — entweder
+// ueber SCSS-Variablen (Build-geprueft, _variables.scss) oder ueber die auf
+// :root gespiegelten CSS-Custom-Properties (var(--token), Laufzeit).
+// Uebergaenge laufen einheitlich ueber das transition()-Mixin (0.3s ease).
+//
+// _Requirements: 2.2, 2.5, 3.1, 3.2, 3.3, 3.4, 3.5, 6.2
+// =============================================================================
+
+@use 'variables' as tokens;
+@use 'mixins' as mix;
+
+// -----------------------------------------------------------------------------
+// Webschrift: Nunito (variabel, Gewichtsachse 200–1000) — Req 3.1, 3.5
+// -----------------------------------------------------------------------------
+// Die variable TTF wird ueber public/ unter stabilem Pfad ausgeliefert.
+// `font-weight: 200 1000` deklariert die unterstuetzte Gewichtsspanne.
+// `font-display: swap` zeigt bei verzoegerter/fehlender Schrift sofort die
+// Ersatzschrift, ohne die Textdarstellung abzubrechen (Req 3.5).
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito-VariableFont_wght.ttf') format('truetype-variations'),
+       url('/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+// -----------------------------------------------------------------------------
+// CSS-Reset
+// -----------------------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // Basisschriftgroesse 16px (Req 3.2) — 1rem referenziert diesen Wert.
+  font-size: tokens.$font-size-base;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// -----------------------------------------------------------------------------
+// Fliesstext — Basis-Typografie (Req 3.1, 3.2, 3.4)
+// -----------------------------------------------------------------------------
+// Werte via CSS-Custom-Properties: so wirkt eine zentrale Token-Aenderung
+// zur Laufzeit ueberall (Req 1.4). Der Fallback-Teil der var()-Aufrufe deckt
+// unbekannte/fehlende Farbwerte ab (Req 2.5): Hintergrund #282D37, Text #fff.
+body {
+  font-family: var(--font-family-base, sans-serif);
+  font-size: var(--font-size-base, 16px);
+  line-height: var(--line-height-body, 1.6);
+  color: var(--color-text, #fff);
+  background-color: var(--color-background, #282D37);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// -----------------------------------------------------------------------------
+// Ueberschriften H1–H6 (Req 3.3, 3.4)
+// -----------------------------------------------------------------------------
+// Alle Ueberschriften: Gewicht 700, Zeilenhoehe 1.2; Groessen H1 2.5rem…H6 1rem.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-base, sans-serif);
+  font-weight: var(--font-weight-heading, 700);
+  line-height: var(--line-height-heading, 1.2);
+  color: var(--color-text, #fff);
+}
+
+h1 { font-size: var(--font-size-h1, 2.5rem); }
+h2 { font-size: var(--font-size-h2, 2rem); }
+h3 { font-size: var(--font-size-h3, 1.75rem); }
+h4 { font-size: var(--font-size-h4, 1.5rem); }
+h5 { font-size: var(--font-size-h5, 1.25rem); }
+h6 { font-size: var(--font-size-h6, 1rem); }
+
+// -----------------------------------------------------------------------------
+// Links (Req 6.2)
+// -----------------------------------------------------------------------------
+// Standardfarbe aus der Palette; Hover auf Primaer-/Akzentfarbe #C15BEB.
+// Der Uebergang laeuft einheitlich ueber das transition()-Mixin (0.3s ease).
+a {
+  color: var(--color-primary, #C15BEB);
+  text-decoration: none;
+  @include mix.transition(color);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primary, #C15BEB);
+    text-decoration: underline;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Schaltflaechen (Req 6.1, 6.2) — token-basierte Grundgestaltung
+// -----------------------------------------------------------------------------
+// Ersetzt die graue Browser-Standarddarstellung durch eine konsistente,
+// token-basierte Gestaltung: Akzentflaeche, Radius, einheitliches Padding und
+// 0.3s-ease-Uebergaenge. Der sichtbare Fokusindikator kommt aus der globalen
+// :focus-visible-Regel weiter unten (gleiche outline fuer alle Bedienelemente).
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs, 0.25rem);
+
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+
+  color: var(--color-text, #fff);
+  background-color: var(--color-primary, #C15BEB);
+  border: 1px solid var(--color-primary, #C15BEB);
+  border-radius: var(--radius-sm, 0.25rem);
+
+  font-weight: var(--font-weight-heading, 700);
+  line-height: var(--line-height-heading, 1.2);
+  cursor: pointer;
+
+  @include mix.transition(background-color, border-color, color, opacity);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-purple-medium, #6C3483);
+    border-color: var(--color-purple-medium, #6C3483);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Sichtbarer Fokusindikator (Req 6.2-naher Default; Kontrast siehe Req 9.4)
+// -----------------------------------------------------------------------------
+:focus-visible {
+  outline: 2px solid var(--color-primary, #C15BEB);
+  outline-offset: 2px;
+}
+
+// -----------------------------------------------------------------------------
+// Divider / Trennlinie
+// -----------------------------------------------------------------------------
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-purple-medium, #6C3483);
+  margin-block: var(--spacing-lg, 1.5rem);
+}

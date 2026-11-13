@@ -1,0 +1,103 @@
+// =============================================================================
+// Utilities — Container- & Abstands-Hilfsklassen — UI-Redesign (Citations)
+//
+// Enthaelt die Layout-Container-Klasse sowie Flex- und Abstands-Hilfsklassen.
+// Alle Abstaende stammen ausschliesslich aus der Abstandsskala
+// ($spacing-xs … $spacing-xxl, Req 4.6); der Breakpoint-Wechsel ab 768px nutzt
+// das respond-to(md)-Mixin (Req 4.4, 7.5). Werte werden ueber SCSS-Variablen
+// (Build-geprueft) bzw. die auf :root gespiegelten Custom-Properties bezogen.
+//
+// _Requirements: 4.4, 4.6, 7.5
+// =============================================================================
+
+@use 'sass:map';
+@use 'variables' as tokens;
+@use 'mixins' as mix;
+
+// -----------------------------------------------------------------------------
+// Container (Req 4.4, 7.5)
+// -----------------------------------------------------------------------------
+// Begrenzt den Inhaltsbereich auf max. 1200px, zentriert ihn horizontal bei
+// groesserer verfuegbarer Breite und setzt seitliches Padding: md (1rem),
+// ab 768px (Breakpoint md) lg (1.5rem).
+.container {
+  width: 100%;
+  max-width: tokens.$breakpoint-xl; // 1200px
+  margin-inline: auto;
+  padding-inline: var(--spacing-md, 1rem);
+
+  @include mix.respond-to(md) {
+    padding-inline: var(--spacing-lg, 1.5rem);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Abstandsskala als Map — alleinige Quelle fuer die Abstands-Hilfsklassen
+// -----------------------------------------------------------------------------
+// Alle generierten Abstandswerte stammen ausschliesslich aus dieser Skala
+// (Req 4.6). Die Custom-Property-Referenz erlaubt zentrale Token-Aenderung
+// zur Laufzeit; der Fallback entspricht dem jeweiligen Token-Wert.
+$spacing-scale: (
+  xs: (var: --spacing-xs, fallback: tokens.$spacing-xs),
+  sm: (var: --spacing-sm, fallback: tokens.$spacing-sm),
+  md: (var: --spacing-md, fallback: tokens.$spacing-md),
+  lg: (var: --spacing-lg, fallback: tokens.$spacing-lg),
+  xl: (var: --spacing-xl, fallback: tokens.$spacing-xl),
+  xxl: (var: --spacing-xxl, fallback: tokens.$spacing-xxl),
+);
+
+// -----------------------------------------------------------------------------
+// Flex-Hilfsklassen (Req 4.6 — Abstaende aus der Skala)
+// -----------------------------------------------------------------------------
+.d-flex { display: flex; }
+.d-inline-flex { display: inline-flex; }
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.flex-grow-1 { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+// -----------------------------------------------------------------------------
+// Abstands-Hilfsklassen — generiert aus der Abstandsskala (Req 4.6)
+// -----------------------------------------------------------------------------
+// Erzeugt gap-, margin- und padding-Klassen je Skalenstufe.
+//   gap-{stufe}
+//   m-{stufe}   mt/mr/mb/ml/mx/my-{stufe}
+//   p-{stufe}   pt/pr/pb/pl/px/py-{stufe}
+// Jeder Wert kommt ausschliesslich aus der Abstandsskala; es werden keine
+// Werte ausserhalb der Design-Tokens verwendet.
+@each $name, $token in $spacing-scale {
+  $value: var(map.get($token, var), map.get($token, fallback));
+
+  .gap-#{$name} { gap: $value; }
+
+  // Margin
+  .m-#{$name} { margin: $value; }
+  .mt-#{$name} { margin-top: $value; }
+  .mr-#{$name} { margin-right: $value; }
+  .mb-#{$name} { margin-bottom: $value; }
+  .ml-#{$name} { margin-left: $value; }
+  .mx-#{$name} { margin-inline: $value; }
+  .my-#{$name} { margin-block: $value; }
+
+  // Padding
+  .p-#{$name} { padding: $value; }
+  .pt-#{$name} { padding-top: $value; }
+  .pr-#{$name} { padding-right: $value; }
+  .pb-#{$name} { padding-bottom: $value; }
+  .pl-#{$name} { padding-left: $value; }
+  .px-#{$name} { padding-inline: $value; }
+  .py-#{$name} { padding-block: $value; }
+}

@@ -121,22 +121,40 @@ watch(() => props.id, load, { immediate: true })
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+// Token-based styling for the source detail view (Task 6.3).
+// Markup, BEM class names, props, logic, routes and i18n keys remain
+// unchanged; only the presentation is driven by design tokens. Values are
+// sourced either via build-checked SCSS variables (Req 1.5) or the
+// :root-mirrored custom properties (Req 1.4); no hardcoded colors/spacing
+// (Req 1.3, 2.2, 4.6, 5.4, 6.1, 8.1, 8.3). The external link and the
+// "view quotes" link pick up the global token-based link styling and the
+// shared transition timing via the transition() mixin.
+@use '@/scss/variables' as tokens;
+@use '@/scss/mixins' as mix;
+
 .source-detail-view__meta {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 0.25rem 1rem;
+  gap: var(--spacing-xs, #{tokens.$spacing-xs})
+    var(--spacing-md, #{tokens.$spacing-md});
 }
 
 .source-detail-view__meta dt {
-  font-weight: 600;
+  // Emphasised term from the heading weight token (no standalone 600 token).
+  font-weight: var(--font-weight-heading, #{tokens.$font-weight-heading});
+}
+
+.source-detail-view__external-link {
+  // Unified link transition timing from the shared mixin (Req 6.2).
+  @include mix.transition(color);
 }
 
 .source-detail-view__quotes-link {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md, #{tokens.$spacing-md});
 }
 
 .source-detail-view__back {
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-lg, #{tokens.$spacing-lg});
 }
 </style>
