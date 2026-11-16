@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Citations\Tests\Property;
 
+use Citations\Http\Dispatcher;
+use Citations\Http\LanguageMappingHandler;
 use Citations\Http\Request;
 use Citations\Http\SessionGuard;
+use Citations\LanguageMappingService;
+use Citations\TextNormalizer;
 use Citations\TokenAuthenticator;
+use Citations\Tests\Fake\InMemoryLanguageRepository;
+use Citations\Tests\Fake\InMemoryUiLanguageMappingRepository;
 use Citations\Tests\Fake\FixedClock;
 use Citations\Tests\Fake\InMemorySessionRepository;
 use Citations\Tests\Fake\InMemoryStore;
@@ -139,6 +145,94 @@ final class SessionGuardWriteProtectionPropertyTest extends PropertyTestCase
                 $recording->called,
                 'The wrapped pipeline must NEVER be invoked for an unauthenticated write: ' . $label
             );
+        });
+    }
+
+    /**
+     * Feature: random-quote-homepage, Property 7: Schreibzugriffe ohne Session
+     * werden vor der Validierung abgelehnt
+     *
+     * PUT/DELETE /language-mappings/{any segment} with ANY body and NO valid
+     * session yield the same 401 as the other write APIs, run no handler logic
+     * (stock unchanged) and do so regardless of whether segment/body would be
+     * valid. Runs against the real Dispatcher + LanguageMappingHandler.
+     *
+     * Validates: Requirements 9.3, 9.8
+     */
+    public function testUnauthenticatedLanguageMappingWriteIsRejectedBeforeValidation(): void
+    {
+        $this->limitTo($this->iterations());
+        $this->forAll(
+            Generator\choose(0, 1),
+            // 0 = "de", 1 = "en", 2 = other valid-looking, 3 = arbitrary hash segment.
+            Generator\choose(0, 3),
+            Generator\choose(0, 4),
+            Generator\choose(self::KIND_MISSING, self::KIND_LOGGED_OUT),
+            Generator\choose(0, PHP_INT_MAX),
+            Generator\choose(1, 1000)
+        )->then(function (
+            int $methodIndex,
+            int $segmentKind,
+            int $bodyKind,
+            int $kind,
+            int $tokenSeed,
+            int $expiredAgoHours
+        ): void {
+            $method = ['PUT', 'DELETE'][$methodIndex];
+            $segment = match ($segmentKind) {
+                0 => 'de',
+                1 => 'en',
+                2 => 'fr',
+                default => substr(hash('sha256', 'seg-' . $tokenSeed), 0, 8),
+            };
+
+            $checkTime = new DateTimeImmutable('@' . self::CHECK_EPOCH);
+            $store = new InMemoryStore();
+            $languages = new InMemoryLanguageRepository($store);
+            $mappings = new InMemoryUiLanguageMappingRepository($store);
+            $first = $languages->insert('Deutsch', TextNormalizer::normalize('Deutsch'));
+            $second = $languages->insert('English', TextNormalizer::normalize('English'));
+            $mappings->assign('de', $first);
+
+            $body = match ($bodyKind) {
+                0 => [],
+                1 => ['languageId' => $second],
+                2 => ['languageId' => $first],
+                3 => ['languageId' => 999_999],
+                default => ['languageId' => 'x', 'junk' => $tokenSeed],
+            };
+
+            $sessions = new InMemorySessionRepository($store);
+            $authenticator = new TokenAuthenticator($sessions);
+            $token = $this->buildNonAuthToken($kind, $tokenSeed, $expiredAgoHours, $checkTime, $sessions);
+            $before = $store->uiLanguageMappings;
+
+            $handler = new LanguageMappingHandler(new LanguageMappingService($mappings, $languages), $mappings);
+            $dispatcher = new Dispatcher([Dispatcher::LANGUAGE_MAPPINGS => $handler]);
+            $guard = new SessionGuard($dispatcher, $authenticator, new FixedClock($checkTime));
+
+            $response = $guard->dispatch(
+                new Request($method, 'language-mappings/' . $segment, [], $body, $token)
+            );
+            $label = sprintf('%s /language-mappings/%s (kind %d)', $method, $segment, $kind);
+
+            self::assertSame(401, $response->status, $label);
+            self::assertIsArray($response->body);
+            self::assertSame('UNAUTHORIZED', $response->body['error'], $label);
+
+            // Same 401 as the other write APIs.
+            $reference = (new SessionGuard(new RecordingPipeline(), $authenticator, new FixedClock($checkTime)))
+                ->dispatch(new Request('POST', 'quotes', [], [], $token));
+            self::assertSame($reference->status, $response->status, $label);
+            self::assertSame($reference->body, $response->body, $label);
+
+            // Stock unchanged.
+            self::assertSame($before, $store->uiLanguageMappings, 'Mappings must be unchanged: ' . $label);
+
+            // GET /language-mappings is public (9.3) even without a session.
+            $list = $guard->dispatch(new Request('GET', 'language-mappings', [], [], $token));
+            self::assertSame(200, $list->status, 'GET must be public: ' . $label);
+            self::assertSame(['de' => $first, 'en' => null], $list->body, $label);
         });
     }
 

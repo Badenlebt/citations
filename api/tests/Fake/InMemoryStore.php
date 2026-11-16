@@ -52,6 +52,9 @@ final class InMemoryStore
     /** @var list<array{username: string, attemptedAt: DateTimeImmutable, success: bool}> append-only attempt log */
     public array $loginAttempts = [];
 
+    /** @var array<string, int> UI language ('de'|'en') => quote language id (1:1 mapping) */
+    public array $uiLanguageMappings = [];
+
     private int $nextSourceId = 1;
     private int $nextLanguageId = 1;
     private int $nextQuoteId = 1;

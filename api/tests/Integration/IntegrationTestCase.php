@@ -150,7 +150,7 @@ abstract class IntegrationTestCase extends TestCase
 
         // Truncate in FK-safe manner, then re-apply the seed.
         $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
-        foreach (['login_attempt', 'session', 'quote', 'language', 'operator', 'source'] as $table) {
+        foreach (['login_attempt', 'session', 'quote', 'ui_language_mapping', 'language', 'operator', 'source'] as $table) {
             $pdo->exec('TRUNCATE TABLE ' . $table);
         }
         $pdo->exec('SET FOREIGN_KEY_CHECKS = 1');
@@ -173,7 +173,7 @@ abstract class IntegrationTestCase extends TestCase
 
         if ($dropFirst) {
             $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
-            foreach (['login_attempt', 'session', 'quote', 'language', 'operator', 'source'] as $table) {
+            foreach (['login_attempt', 'session', 'quote', 'ui_language_mapping', 'language', 'operator', 'source'] as $table) {
                 $pdo->exec('DROP TABLE IF EXISTS ' . $table);
             }
             $pdo->exec('SET FOREIGN_KEY_CHECKS = 1');

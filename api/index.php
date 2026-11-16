@@ -38,6 +38,7 @@ use Citations\Http\ErrorMapper;
 use Citations\Http\FrontController;
 use Citations\Http\JsonResponder;
 use Citations\Http\LanguageHandler;
+use Citations\Http\LanguageMappingHandler;
 use Citations\Http\PhpResponseEmitter;
 use Citations\Http\QuoteHandler;
 use Citations\Http\Request;
@@ -49,6 +50,7 @@ use Citations\Http\SessionGuard;
 use Citations\Http\SourceHandler;
 use Citations\Http\SystemClock;
 use Citations\LanguageCreator;
+use Citations\LanguageMappingService;
 use Citations\PdoConnectionFactory;
 use Citations\QuoteCreator;
 use Citations\RandomQuoteSelector;
@@ -62,6 +64,7 @@ use Citations\Repository\LazyOperatorRepository;
 use Citations\Repository\LazyQuoteRepository;
 use Citations\Repository\LazySessionRepository;
 use Citations\Repository\LazySourceRepository;
+use Citations\Repository\LazyUiLanguageMappingRepository;
 use Citations\SystemRandomNumberGenerator;
 use Citations\TokenAuthenticator;
 
@@ -93,10 +96,23 @@ $pdoFactory = static function () use (&$pdo): PDO {
 // through the boundary below rather than at bootstrap (15.7).
 $quotes = new LazyQuoteRepository($pdoFactory);
 $languages = new LazyLanguageRepository($pdoFactory);
+$uiLanguageMappings = new LazyUiLanguageMappingRepository($pdoFactory);
 $searchHandler = new SearchHandler(
     $quotes,
     $languages,
-    new RandomQuoteSelector($quotes, new SystemRandomNumberGenerator()),
+    new RandomQuoteSelector(
+        $quotes,
+        new SystemRandomNumberGenerator(),
+        $uiLanguageMappings,
+    ),
+);
+
+// Language-mapping handler: public GET /language-mappings, protected
+// PUT|DELETE /language-mappings/{uiLanguage} (9.3-9.8); shares the lazy mapping
+// repository above.
+$languageMappingHandler = new LanguageMappingHandler(
+    new LanguageMappingService($uiLanguageMappings, $languages),
+    $uiLanguageMappings,
 );
 
 // The Zitat-API handler serves the public GET /quotes/{id} single view (4) and
@@ -183,6 +199,7 @@ $handlers = [
     Dispatcher::SOURCES => $sourceHandler,
     Dispatcher::LANGUAGES => $languageHandler,
     Dispatcher::AUTH => $authHandler,
+    Dispatcher::LANGUAGE_MAPPINGS => $languageMappingHandler,
 ];
 
 // Wrap the dispatcher in the session guard. The guard's token authenticator is

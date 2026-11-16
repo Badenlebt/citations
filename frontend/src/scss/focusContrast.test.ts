@@ -252,6 +252,7 @@ const indicatorSources: readonly IndicatorSource[] = [
   { file: 'src/components/ScrollToTop.vue', css: compileScoped(resolve(componentsDir, 'ScrollToTop.vue')) },
   { file: 'src/components/LanguageSwitcher.vue', css: compileScoped(resolve(componentsDir, 'LanguageSwitcher.vue')) },
   { file: 'src/components/LengthLimitedInput.vue', css: compileScoped(resolve(componentsDir, 'LengthLimitedInput.vue')) },
+  { file: 'src/views/HomeView.vue', css: compileScoped(resolve(srcDir, 'views/HomeView.vue')) },
 ]
 
 const indicators: readonly FocusIndicator[] = indicatorSources.map(({ file, css }) => {
@@ -316,5 +317,24 @@ describe('Fokusindikator-Kontrast (Property 7)', () => {
       }),
       { numRuns: 100 },
     )
+  })
+
+  // Req 7.6: HomeView trägt Fokusindikatoren (Link + Nachladen-Schaltfläche)
+  // mit sichtbarer outline-Breite >= 2px und >= 3:1 Kontrast.
+  it('every HomeView focus indicator is at least 2px wide and meets 3:1', () => {
+    const css = indicatorSources.find((s) => s.file === 'src/views/HomeView.vue')!.css
+    const blocks = focusOutlineBlocks(css)
+    expect(blocks.length).toBeGreaterThanOrEqual(2)
+    for (const block of blocks) {
+      const decl = block.match(/(?:^|[;{\s])outline\s*:\s*([^;]+);/)![1]
+      const width = decl.match(/(\d*\.?\d+)px/)
+      expect(width, 'outline width in "' + decl + '"').not.toBeNull()
+      expect(parseFloat(width![1])).toBeGreaterThanOrEqual(2)
+      const ratio = contrastRatio(
+        resolveOutlineColor(block, 'HomeView.vue'),
+        tokenHex[BACKGROUND_TOKEN],
+      )
+      expect(ratio).toBeGreaterThanOrEqual(MIN_FOCUS_CONTRAST)
+    }
   })
 })

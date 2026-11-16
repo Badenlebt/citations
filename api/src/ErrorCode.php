@@ -33,6 +33,8 @@ enum ErrorCode: string
     case SOURCE_HAS_QUOTES = 'SOURCE_HAS_QUOTES';
     case UNKNOWN_SOURCE_RESERVED = 'UNKNOWN_SOURCE_RESERVED';
     case LANGUAGE_EXISTS = 'LANGUAGE_EXISTS';
+    case INVALID_UI_LANGUAGE = 'INVALID_UI_LANGUAGE';
+    case LANGUAGE_ALREADY_MAPPED = 'LANGUAGE_ALREADY_MAPPED';
     case RATE_LIMITED = 'RATE_LIMITED';
     case INTERNAL_ERROR = 'INTERNAL_ERROR';
 
@@ -47,6 +49,7 @@ enum ErrorCode: string
             self::MISSING_TEXT,
             self::INVALID_SOURCE,
             self::INVALID_LANGUAGE,
+            self::INVALID_UI_LANGUAGE,
             self::MISSING_NAME,
             self::INVALID_LINK_URL,
             self::INPUT_TOO_LONG,
@@ -62,7 +65,8 @@ enum ErrorCode: string
 
             self::SOURCE_HAS_QUOTES,
             self::UNKNOWN_SOURCE_RESERVED,
-            self::LANGUAGE_EXISTS => 409,
+            self::LANGUAGE_EXISTS,
+            self::LANGUAGE_ALREADY_MAPPED => 409,
 
             self::RATE_LIMITED => 429,
 

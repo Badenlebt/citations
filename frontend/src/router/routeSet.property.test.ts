@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import fc from 'fast-check'
 import { routes, RouteName } from '@/router'
+import HomeView from '@/views/HomeView.vue'
 import SearchView from '@/views/SearchView.vue'
 import QuoteDetailView from '@/views/QuoteDetailView.vue'
 import SourceDetailView from '@/views/SourceDetailView.vue'
@@ -15,7 +16,7 @@ import NotFoundView from '@/views/NotFoundView.vue'
 // Design (Property 9, Req 8.1): Das UI-Redesign ändert ausschließlich Styling
 // und darf Routen, Pfade und die je Route gerenderte View-Komponente NICHT
 // verändern. Wir definieren die im Redesign unveränderte Referenzmenge aus
-// {Routenname, Pfad, View-Komponente} explizit (die 5 bekannten Routen) und
+// {Routenname, Pfad, View-Komponente} explizit (die 6 bekannten Routen) und
 // prüfen Mengengleichheit gegen die tatsächliche Router-Definition `routes`.
 //
 // Vergleich der View-Komponenten per Referenzidentität: die aus `@/views`
@@ -39,7 +40,8 @@ function keyOf(route: RouteTriple, componentId: (c: unknown) => number): string 
 
 // Die explizit erwartete, im Redesign unveränderte Referenzmenge.
 const expectedRoutes: RouteTriple[] = [
-  { name: RouteName.Search, path: '/', component: SearchView },
+  { name: RouteName.Home, path: '/', component: HomeView },
+  { name: RouteName.Search, path: '/search', component: SearchView },
   { name: RouteName.QuoteDetail, path: '/quotes/:id', component: QuoteDetailView },
   { name: RouteName.SourceDetail, path: '/sources/:id', component: SourceDetailView },
   { name: RouteName.Admin, path: '/admin', component: AdminView },

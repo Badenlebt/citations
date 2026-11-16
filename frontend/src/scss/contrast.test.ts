@@ -156,3 +156,30 @@ describe('WCAG AA contrast of palette and status colours', () => {
     )
   })
 })
+
+// Req 7.7: Alle in HomeView.vue verwendeten Textfarben (Token-Referenzen) erfüllen
+// gegen den Hintergrund WCAG AA. Fließtext/Status: 4.5:1; Link-Akzent (Primär-
+// bzw. Hover-Token): 3:1, analog zur Kombination "primary accent link".
+describe('HomeView.vue colour tokens meet WCAG AA', () => {
+  const homeSource = readFileSync(
+    resolve(process.cwd(), 'src/views/HomeView.vue'),
+    'utf8',
+  )
+  const styleBlock = homeSource.match(/<style[^>]*>([\s\S]*?)<\/style>/)![1]
+
+  it('uses only colour tokens from the palette and each meets its threshold', () => {
+    // `color: var(--color-x, #{tokens.$color-x})` – nur echte Textfarben, keine border-color.
+    const used = [
+      ...styleBlock.matchAll(/(?<![\w-])color:\s*var\(--(color-[\w-]+)/g),
+    ].map((m) => m[1])
+    expect(used.length).toBeGreaterThan(0)
+    for (const name of new Set(used)) {
+      const hex = token(name)
+      const threshold = name === 'color-text' ? NORMAL_TEXT : LARGE_OR_GRAPHICAL
+      expect(
+        contrastRatio(hex, palette.background),
+        'HomeView ' + name + ' on background',
+      ).toBeGreaterThanOrEqual(threshold)
+    }
+  })
+})

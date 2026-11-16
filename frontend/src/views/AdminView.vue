@@ -10,20 +10,21 @@
 // (Req 18.6 / 19.6).
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { api, ApiError, type Language, type SourceListItem } from '@/api'
+import { api, ApiError, type Language, type LanguageMappings, type SourceListItem } from '@/api'
 import { useI18n } from '@/i18n'
 import AdminLogin from '@/components/admin/AdminLogin.vue'
 import QuoteManager from '@/components/admin/QuoteManager.vue'
 import SourceManager from '@/components/admin/SourceManager.vue'
 import LanguageManager from '@/components/admin/LanguageManager.vue'
+import LanguageMappingManager from '@/components/admin/LanguageMappingManager.vue'
 
-type Tab = 'quotes' | 'sources' | 'languages'
+type Tab = 'quotes' | 'sources' | 'languages' | 'mappings'
 
 const i18n = useI18n()
 const route = useRoute()
 const router = useRouter()
 
-const TABS: readonly Tab[] = ['quotes', 'sources', 'languages']
+const TABS: readonly Tab[] = ['quotes', 'sources', 'languages', 'mappings']
 
 function isTab(value: unknown): value is Tab {
   return typeof value === 'string' && (TABS as readonly string[]).includes(value)
@@ -46,6 +47,7 @@ function selectTab(tab: Tab): void {
 }
 const sources = ref<SourceListItem[]>([])
 const languages = ref<Language[]>([])
+const mappings = ref<LanguageMappings>({ de: null, en: null })
 const loadError = ref<string | null>(null)
 const quoteManager = ref<InstanceType<typeof QuoteManager> | null>(null)
 
@@ -73,6 +75,10 @@ async function loadLanguages(): Promise<void> {
   languages.value = await api.getLanguages()
 }
 
+async function loadMappings(): Promise<void> {
+  mappings.value = await api.getLanguageMappings()
+}
+
 /**
  * Loads the data the managers depend on. The source list is a protected call,
  * so a 401 here means the session is absent or expired and we fall back to the
@@ -81,7 +87,7 @@ async function loadLanguages(): Promise<void> {
 async function loadData(): Promise<boolean> {
   loadError.value = null
   try {
-    await Promise.all([loadSources(), loadLanguages()])
+    await Promise.all([loadSources(), loadLanguages(), loadMappings()])
     return true
   } catch (error) {
     if (error instanceof ApiError && error.isUnauthorized) {
@@ -170,6 +176,15 @@ void (async () => {
         >
           {{ i18n.t('admin.tabLanguages') }}
         </button>
+        <button
+          type="button"
+          class="admin-view__tab"
+          :class="{ 'admin-view__tab--active': activeTab === 'mappings' }"
+          :aria-pressed="activeTab === 'mappings'"
+          @click="selectTab('mappings')"
+        >
+          {{ i18n.t('admin.tabMappings') }}
+        </button>
       </nav>
 
       <p v-if="loadError" class="admin-view__error" role="alert">{{ loadError }}</p>
@@ -192,6 +207,14 @@ void (async () => {
       <LanguageManager
         v-show="activeTab === 'languages'"
         :languages="languages"
+        @changed="onChanged"
+        @unauthorized="onUnauthorized"
+      />
+
+      <LanguageMappingManager
+        v-show="activeTab === 'mappings'"
+        :languages="languages"
+        :mappings="mappings"
         @changed="onChanged"
         @unauthorized="onUnauthorized"
       />

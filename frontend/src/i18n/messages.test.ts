@@ -61,4 +61,32 @@ describe('i18n message catalogs', () => {
       }
     }
   })
+
+  // Req 6.1, 9.12: keys added for the random-quote homepage and UI language mapping.
+  it('provides the new homepage and language-mapping keys, non-empty, in de and en', () => {
+    const required = [
+      'home.heading',
+      'home.reload',
+      'home.empty',
+      'home.error',
+      'home.searchLink',
+      'nav.home',
+      'admin.tabMappings',
+      'admin.languageMappingsHeading',
+      'admin.languageMappingsHint',
+      'admin.languageMappingsNone',
+      'admin.languageMappingsUiDe',
+      'admin.languageMappingsUiEn',
+      'admin.languageMappingsSaved',
+      'errors.INVALID_UI_LANGUAGE',
+      'errors.LANGUAGE_ALREADY_MAPPED',
+    ]
+    for (const locale of ['de', 'en'] as const) {
+      const flat = flatten(messages[locale])
+      for (const key of required) {
+        expect(flat[key], `${locale}.${key} must exist`).toBeTypeOf('string')
+        expect(flat[key].trim().length, `${locale}.${key} must not be empty`).toBeGreaterThan(0)
+      }
+    }
+  })
 })

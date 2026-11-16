@@ -77,6 +77,42 @@ final class PdoQuoteRepository implements QuoteRepositoryInterface
         return $row === false ? null : self::toRecord($row);
     }
 
+    public function countByLanguage(int $languageId): int
+    {
+        $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM quote WHERE language_id = :language_id');
+        $stmt->bindValue(':language_id', $languageId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return (int) $stmt->fetchColumn();
+    }
+
+    public function findByIndexInLanguage(int $languageId, int $index): ?array
+    {
+        if ($index < 0) {
+            return null;
+        }
+
+        // Same stable ORDER BY q.id ASC + LIMIT 1 OFFSET scheme as
+        // findByIndex(), restricted to one language's sub-stock (6.8, 6.9).
+        $stmt = $this->pdo->prepare(
+            'SELECT q.id, q.text, q.language_id,'
+            . ' l.name AS language_name,'
+            . ' s.id AS source_id, s.name AS source_name, s.link_url AS source_link_url'
+            . ' FROM quote q'
+            . ' JOIN language l ON l.id = q.language_id'
+            . ' JOIN source s ON s.id = q.source_id'
+            . ' WHERE q.language_id = :language_id'
+            . ' ORDER BY q.id ASC'
+            . ' LIMIT 1 OFFSET :offset',
+        );
+        $stmt->bindValue(':language_id', $languageId, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $index, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch();
+
+        return $row === false ? null : self::toRecord($row);
+    }
+
     public function findAllForSearch(?int $sourceId = null): array
     {
         // The whole candidate set is read joined with language and source so the

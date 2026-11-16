@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Citations;
 
 use Citations\Repository\QuoteRepositoryInterface;
+use Citations\Repository\UiLanguageMappingRepositoryInterface;
 
 /**
  * Random-quote selection against the stored stock (Requirements 3.1, 3.3;
@@ -33,6 +34,7 @@ final class RandomQuoteSelector
     public function __construct(
         private readonly QuoteRepositoryInterface $quotes,
         private readonly RandomNumberGenerator $rng,
+        private readonly UiLanguageMappingRepositoryInterface $mappings,
     ) {
     }
 
@@ -47,11 +49,28 @@ final class RandomQuoteSelector
      *         The selected quote (3.1), or null when the stock is empty so the
      *         endpoint can answer `NO_QUOTES` (3.3).
      */
-    public function pick(): ?array
+    public function pick(?UiLanguage $ui = null): ?array
     {
-        $index = RandomSelector::select($this->quotes->count(), $this->rng->next());
+        // Exactly one RNG draw, reused for every candidate (6.7-6.10).
+        $r = $this->rng->next();
 
-        // Empty stock: the pure selector returned null (NO_QUOTES, 3.3).
+        // Without a UI language the mapping is not read at all (8.2).
+        $candidates = $ui === null
+            ? []
+            : UiLanguageResolver::candidateLanguageIds($ui, $this->mappings->findAll());
+
+        foreach ($candidates as $languageId) {
+            $n = $this->quotes->countByLanguage($languageId);
+            if ($n > 0) {
+                $index = RandomSelector::select($n, $r);
+                if ($index !== null) {
+                    return $this->quotes->findByIndexInLanguage($languageId, $index);
+                }
+            }
+        }
+
+        // Fallback: whole stock (null only when empty, 6.10).
+        $index = RandomSelector::select($this->quotes->count(), $r);
         if ($index === null) {
             return null;
         }

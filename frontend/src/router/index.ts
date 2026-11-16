@@ -4,6 +4,7 @@ import {
   type RouteRecordRaw,
   type Router,
 } from 'vue-router'
+import HomeView from '@/views/HomeView.vue'
 import SearchView from '@/views/SearchView.vue'
 import QuoteDetailView from '@/views/QuoteDetailView.vue'
 import SourceDetailView from '@/views/SourceDetailView.vue'
@@ -12,6 +13,7 @@ import NotFoundView from '@/views/NotFoundView.vue'
 
 /** Named route identifiers used across the app. */
 export const RouteName = {
+  Home: 'home',
   Search: 'search',
   QuoteDetail: 'quote-detail',
   SourceDetail: 'source-detail',
@@ -24,6 +26,11 @@ export const RouteName = {
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    name: RouteName.Home,
+    component: HomeView,
+  },
+  {
+    path: '/search',
     name: RouteName.Search,
     component: SearchView,
   },

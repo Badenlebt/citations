@@ -33,6 +33,7 @@ final class DispatcherTest extends TestCase
             Dispatcher::SOURCES => new RecordingHandler(),
             Dispatcher::LANGUAGES => new RecordingHandler(),
             Dispatcher::AUTH => new RecordingHandler(),
+            Dispatcher::LANGUAGE_MAPPINGS => new RecordingHandler(),
         ];
         $this->dispatcher = new Dispatcher($this->handlers);
     }
@@ -56,6 +57,9 @@ final class DispatcherTest extends TestCase
             'DELETE source item' => ['DELETE', 'sources/42', Dispatcher::SOURCES],
             'GET languages' => ['GET', 'languages', Dispatcher::LANGUAGES],
             'POST languages' => ['POST', 'languages', Dispatcher::LANGUAGES],
+            'GET language-mappings' => ['GET', 'language-mappings', Dispatcher::LANGUAGE_MAPPINGS],
+            'PUT language-mapping item' => ['PUT', 'language-mappings/de', Dispatcher::LANGUAGE_MAPPINGS],
+            'DELETE language-mapping item' => ['DELETE', 'language-mappings/en', Dispatcher::LANGUAGE_MAPPINGS],
             'POST auth login' => ['POST', 'auth/login', Dispatcher::AUTH],
             'POST auth logout' => ['POST', 'auth/logout', Dispatcher::AUTH],
         ];
@@ -161,6 +165,12 @@ final class DispatcherTest extends TestCase
             'PUT /quotes/{id}' => ['PUT', 'quotes/7', true],
             'DELETE /sources/{id}' => ['DELETE', 'sources/42', true],
             'POST /languages' => ['POST', 'languages', true],
+            // Language mappings: writes protected, GET public (9.3, 9.8).
+            'PUT /language-mappings/{ui}' => ['PUT', 'language-mappings/de', true],
+            'DELETE /language-mappings/{ui}' => ['DELETE', 'language-mappings/en', true],
+            'GET /language-mappings' => ['GET', 'language-mappings', false],
+            'POST /language-mappings' => ['POST', 'language-mappings', false],
+            'PUT /language-mappings (no segment)' => ['PUT', 'language-mappings', false],
             // Public reads: NOT protected (7.3).
             'GET /quotes/{id}' => ['GET', 'quotes/7', false],
             'GET /sources/{id}' => ['GET', 'sources/4', false],
@@ -179,6 +189,32 @@ final class DispatcherTest extends TestCase
         $segments = $path === '' ? [] : explode('/', $path);
 
         self::assertSame($expected, Dispatcher::isProtectedRoute($method, $segments));
+    }
+
+    public function testExtractsUiLanguagePathParamForLanguageMapping(): void
+    {
+        $this->dispatcher->dispatch(new Request('PUT', 'language-mappings/de'));
+
+        self::assertSame(['uiLanguage' => 'de'], $this->handlers[Dispatcher::LANGUAGE_MAPPINGS]->lastPathParams);
+    }
+
+    public function testIsWriteRouteForLanguageMappingsRequiresTwoSegments(): void
+    {
+        self::assertTrue(Dispatcher::isWriteRoute('PUT', ['language-mappings', 'de']));
+        self::assertTrue(Dispatcher::isWriteRoute('DELETE', ['language-mappings', 'en']));
+        self::assertFalse(Dispatcher::isWriteRoute('GET', ['language-mappings']));
+        self::assertFalse(Dispatcher::isWriteRoute('GET', ['language-mappings', 'de']));
+        self::assertFalse(Dispatcher::isWriteRoute('PUT', ['language-mappings']));
+        self::assertFalse(Dispatcher::isWriteRoute('PUT', ['language-mappings', 'de', 'x']));
+    }
+
+    public function testUnsupportedLanguageMappingRoutesYieldNotFound(): void
+    {
+        foreach ([['POST', 'language-mappings'], ['GET', 'language-mappings/de'], ['PUT', 'language-mappings']] as [$m, $p]) {
+            $response = $this->dispatcher->dispatch(new Request($m, $p));
+            self::assertSame(ErrorCode::NOT_FOUND->httpStatus(), $response->status);
+        }
+        self::assertFalse($this->handlers[Dispatcher::LANGUAGE_MAPPINGS]->called);
     }
 
     public function testPrefixStrippingWorksWithSubdirectoryMount(): void

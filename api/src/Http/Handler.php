@@ -25,7 +25,7 @@ interface Handler
      * Handle a routed request and produce a response.
      *
      * @param Request              $request    The routed request.
-     * @param array<string, int>   $pathParams Extracted path parameters such as
+     * @param array<string, int|string> $pathParams Extracted path parameters such as
      *                                          `['id' => 7]` for `/quotes/{id}`.
      */
     public function handle(Request $request, array $pathParams = []): Response;

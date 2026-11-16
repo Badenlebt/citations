@@ -8,6 +8,7 @@ use Citations\RandomQuoteSelector;
 use Citations\Repository\PdoLanguageRepository;
 use Citations\Repository\PdoQuoteRepository;
 use Citations\Repository\PdoSourceRepository;
+use Citations\Repository\PdoUiLanguageMappingRepository;
 use Citations\SystemRandomNumberGenerator;
 
 /**
@@ -52,7 +53,7 @@ final class RandomQuoteSelectionIntegrationTest extends IntegrationTestCase
 
         $this->assertSame(12, $quotes->count(), 'All seeded quotes must be counted.');
 
-        $selector = new RandomQuoteSelector($quotes, new SystemRandomNumberGenerator());
+        $selector = new RandomQuoteSelector($quotes, new SystemRandomNumberGenerator(), new PdoUiLanguageMappingRepository($pdo));
 
         $seen = [];
         $iterations = 400;

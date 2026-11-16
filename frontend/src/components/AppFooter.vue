@@ -33,7 +33,7 @@ const i18n = useI18n()
             </RouterLink>
           </li>
           <li>
-            <RouterLink class="app-footer__link" :to="{ name: RouteName.Search }">
+            <RouterLink class="app-footer__link" :to="{ name: RouteName.Home }">
               {{ i18n.t('search.randomQuote') }}
             </RouterLink>
           </li>

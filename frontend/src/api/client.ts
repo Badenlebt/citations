@@ -1,8 +1,11 @@
 import { request } from './http'
+import type { Locale } from '../i18n/locales'
 import type {
   CreatedResponse,
   Language,
   LanguageInput,
+  LanguageMapping,
+  LanguageMappings,
   ListParams,
   LoginInput,
   QuoteDetail,
@@ -39,8 +42,8 @@ export const api = {
   },
 
   /** GET /api/random — a single random quote (Req 3). */
-  random(signal?: AbortSignal): Promise<QuoteDetail> {
-    return request<QuoteDetail>('/random', { signal })
+  random(signal?: AbortSignal, uiLanguage?: Locale): Promise<QuoteDetail> {
+    return request<QuoteDetail>('/random', { query: { uiLanguage }, signal })
   },
 
   /** GET /api/quotes/{id} — single quote view (Req 4). */
@@ -126,6 +129,26 @@ export const api = {
 
   createLanguage(input: LanguageInput): Promise<Language> {
     return request<Language>('/languages', { method: 'POST', body: input })
+  },
+
+  // --- Language mappings (UI language -> quote language) -------------------
+
+  /** GET /api/language-mappings — public mapping per UI language (Req 9.3). */
+  getLanguageMappings(signal?: AbortSignal): Promise<LanguageMappings> {
+    return request<LanguageMappings>('/language-mappings', { signal })
+  },
+
+  /** PUT /api/language-mappings/{uiLanguage} — assign a quote language (Req 9.4). */
+  setLanguageMapping(uiLanguage: Locale, languageId: number): Promise<LanguageMapping> {
+    return request<LanguageMapping>(`/language-mappings/${uiLanguage}`, {
+      method: 'PUT',
+      body: { languageId },
+    })
+  },
+
+  /** DELETE /api/language-mappings/{uiLanguage} — remove a mapping (Req 9.7). */
+  removeLanguageMapping(uiLanguage: Locale): Promise<LanguageMapping> {
+    return request<LanguageMapping>(`/language-mappings/${uiLanguage}`, { method: 'DELETE' })
   },
 
   // --- Auth endpoints -----------------------------------------------------

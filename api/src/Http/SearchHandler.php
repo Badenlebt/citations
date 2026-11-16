@@ -15,6 +15,7 @@ use Citations\Repository\QuoteRepositoryInterface;
 use Citations\ResultSorter;
 use Citations\SearchQueryValidator;
 use Citations\SearchTokenizer;
+use Citations\UiLanguage;
 
 /**
  * Search-API endpoint handler (Requirements 1, 2, 3, 5.3; design "Such-API").
@@ -53,7 +54,7 @@ final class SearchHandler implements Handler
         $segment = $request->segments[0] ?? 'search';
 
         if ($segment === 'random') {
-            return $this->handleRandom();
+            return $this->handleRandom($request);
         }
 
         return $this->handleSearch($request);
@@ -64,9 +65,12 @@ final class SearchHandler implements Handler
      * when the stock is empty (3.3). The uniform, fully-reachable selection
      * (3.2) lives in the injected {@see RandomQuoteSelector}.
      */
-    private function handleRandom(): Response
+    private function handleRandom(Request $request): Response
     {
-        $quote = $this->randomQuoteSelector->pick();
+        // 6.7/8.2: optional `uiLanguage`; missing/empty/invalid => null.
+        $ui = UiLanguage::tryFromInput($request->query['uiLanguage'] ?? null);
+
+        $quote = $this->randomQuoteSelector->pick($ui);
 
         if ($quote === null) {
             return Response::error(ErrorCode::NO_QUOTES, 'No quotes are available.');

@@ -139,6 +139,22 @@ const REFERENCE_KEYS: readonly string[] = [
   'source.notFound',
   'source.quotes',
   'source.viewQuotes',
+  // Ergaenzt durch random-quote-homepage (Task 4.3); bestehende Schluessel unveraendert.
+  'home.heading',
+  'home.reload',
+  'home.empty',
+  'home.error',
+  'home.searchLink',
+  'nav.home',
+  'admin.tabMappings',
+  'admin.languageMappingsHeading',
+  'admin.languageMappingsHint',
+  'admin.languageMappingsNone',
+  'admin.languageMappingsUiDe',
+  'admin.languageMappingsUiEn',
+  'admin.languageMappingsSaved',
+  'errors.INVALID_UI_LANGUAGE',
+  'errors.LANGUAGE_ALREADY_MAPPED',
 ].slice().sort()
 
 describe('i18n-Schluessel bleiben erhalten (Property 10)', () => {

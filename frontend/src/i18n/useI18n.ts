@@ -51,10 +51,31 @@ export function resolveInitialLocale(): Locale {
   return readStoredLocale() ?? resolveBrowserLocale()
 }
 
-function lookup(catalog: MessageSchema, key: MessageKey): string {
+function entryOf(catalog: MessageSchema, key: MessageKey): string | undefined {
   const [section, entry] = key.split('.') as [keyof MessageSchema, string]
   const group = catalog[section] as Record<string, string> | undefined
-  return group?.[entry] ?? key
+  const value = group?.[entry]
+  return typeof value === 'string' && value !== '' ? value : undefined
+}
+
+/**
+ * Looks up a key in the given locale. A missing or empty text falls back to
+ * the other locale, then to the key name itself (Req 6.5).
+ */
+function lookup(locale: Locale, key: MessageKey): string {
+  const own = entryOf(messages[locale], key)
+  if (own !== undefined) {
+    return own
+  }
+  for (const other of SUPPORTED_LOCALES) {
+    if (other !== locale) {
+      const fallback = entryOf(messages[other], key)
+      if (fallback !== undefined) {
+        return fallback
+      }
+    }
+  }
+  return key
 }
 
 /** Creates an i18n instance. Exported for tests that need an isolated one. */
@@ -68,7 +89,7 @@ export function createI18n(initialLocale: Locale = resolveInitialLocale()): I18n
   }
 
   function t(key: MessageKey): string {
-    return lookup(activeMessages.value, key)
+    return lookup(locale.value, key)
   }
 
   return {

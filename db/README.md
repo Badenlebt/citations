@@ -5,6 +5,10 @@ Zitate-System.
 
 - `schema.sql` — Tabellen `source`, `language`, `quote`, `operator`, `session`,
   `login_attempt` (wird in Task 2.1 ausgefüllt).
+- `migrations/001_ui_language_mapping.sql` — legt die Tabelle
+  `ui_language_mapping` (Zuordnung Oberflächensprache → Zitat-Sprache) in
+  bestehenden Datenbanken an (`CREATE TABLE IF NOT EXISTS`, idempotent). Neue
+  Datenbanken erhalten sie bereits über `schema.sql`.
 - `seed.sql` — Seed für genau eine Unbekannt-Quelle
   (`is_unknown = 1`, `name = 'unbekannt'`) sowie ggf. Basisdaten (Task 2.1).
 

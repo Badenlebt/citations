@@ -18,7 +18,7 @@ CREATE TABLE source (
     birth_date  VARCHAR(500) NULL DEFAULT NULL,     -- optional, 0..500
     death_date  VARCHAR(500) NULL DEFAULT NULL,     -- optional, 0..500
     description VARCHAR(500) NULL DEFAULT NULL,      -- optional, 0..500
-    link_url    VARCHAR(2000) NULL DEFAULT NULL,     -- optional, 0..2000; falls gesetzt http(s)://
+    link_url    VARCHAR(2000) NULL DEFAULT NULL,     -- optional, 0..2000, falls gesetzt http(s)://
     is_unknown  TINYINT(1) NOT NULL DEFAULT 0,       -- genau eine Zeile = 1 (Anf. 13.1)
     -- Generated helper for the single-Unbekannt-Quelle invariant: it is 1 for the
     -- Unbekannt-Quelle and NULL otherwise. A UNIQUE key over it rejects a second
@@ -38,6 +38,18 @@ CREATE TABLE language (
     name_normalized VARCHAR(100) NOT NULL,          -- kleingeschriebene Normalform
     PRIMARY KEY (id),
     UNIQUE KEY uq_language_name_normalized (name_normalized)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Zuordnung Oberflächensprache -> Zitat-Sprache (1:1, Anf. 9.1, 9.2).
+CREATE TABLE ui_language_mapping (
+    ui_language CHAR(2) NOT NULL,                 -- 'de' | 'en'
+    language_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (ui_language),                    -- höchstens ein Eintrag je Oberflächensprache
+    UNIQUE KEY uq_ui_language_mapping_language (language_id),  -- jede Zitat-Sprache höchstens einmal
+    CONSTRAINT chk_ui_language_mapping_ui CHECK (ui_language IN ('de', 'en')),
+    CONSTRAINT fk_ui_language_mapping_language
+        FOREIGN KEY (language_id) REFERENCES language (id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Zitat (Anf. 1, 4, 8, 9, 12). Each quote references exactly one source and

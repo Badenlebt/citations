@@ -15,6 +15,7 @@ use Citations\Tests\Fake\InMemoryLanguageRepository;
 use Citations\Tests\Fake\InMemoryQuoteRepository;
 use Citations\Tests\Fake\InMemorySourceRepository;
 use Citations\Tests\Fake\InMemoryStore;
+use Citations\Tests\Fake\InMemoryUiLanguageMappingRepository;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -53,7 +54,7 @@ final class SearchHandlerTest extends TestCase
         return new SearchHandler(
             $this->quotes,
             $this->languages,
-            new RandomQuoteSelector($this->quotes, $this->fixedRng($randomDraw)),
+            new RandomQuoteSelector($this->quotes, $this->fixedRng($randomDraw), new InMemoryUiLanguageMappingRepository($this->store)),
         );
     }
 
@@ -231,6 +232,70 @@ final class SearchHandlerTest extends TestCase
         $response = $this->handler(0.0)->handle(new Request('GET', 'random'));
 
         self::assertSame(ErrorCode::NO_QUOTES->httpStatus(), $response->status);
+        self::assertSame('NO_QUOTES', $response->body['error']);
+    }
+
+    // --- GET /api/random: uiLanguage parameter (6.7-6.9, 9.13) -------------
+
+    /** Seeds one German and one English quote; returns [deId, enId]. */
+    private function seedTwoLanguages(): array
+    {
+        $deId = $this->quotes->insert('Deutsches Zitat', $this->seneca, $this->de);
+        $enId = $this->quotes->insert('English quote', $this->seneca, $this->en);
+
+        return [$deId, $enId];
+    }
+
+    public function testRandomWithoutUiLanguageIgnoresMapping(): void
+    {
+        [$deId] = $this->seedTwoLanguages();
+        (new InMemoryUiLanguageMappingRepository($this->store))->assign('en', $this->en);
+
+        $response = $this->handler(0.0)->handle(new Request('GET', 'random'));
+
+        self::assertSame(200, $response->status);
+        self::assertSame($deId, $response->body['id']);
+    }
+
+    public function testRandomWithInvalidUiLanguageBehavesLikeWithout(): void
+    {
+        [$deId] = $this->seedTwoLanguages();
+        (new InMemoryUiLanguageMappingRepository($this->store))->assign('en', $this->en);
+
+        foreach (['fr', '', 'DE!', 'xx yy'] as $invalid) {
+            $response = $this->handler(0.0)->handle(new Request('GET', 'random', ['uiLanguage' => $invalid]));
+
+            self::assertSame(200, $response->status, "uiLanguage '{$invalid}' must not cause an error");
+            self::assertSame($deId, $response->body['id']);
+        }
+    }
+
+    public function testRandomWithValidUiLanguageAndMappingUsesMappedLanguage(): void
+    {
+        [, $enId] = $this->seedTwoLanguages();
+        (new InMemoryUiLanguageMappingRepository($this->store))->assign('en', $this->en);
+
+        $response = $this->handler(0.0)->handle(new Request('GET', 'random', ['uiLanguage' => 'en']));
+
+        self::assertSame(200, $response->status);
+        self::assertSame($enId, $response->body['id']);
+        self::assertSame($this->en, $response->body['languageId']);
+    }
+
+    public function testRandomWithValidUiLanguageWithoutMappingFallsBackToWholeStock(): void
+    {
+        [$deId] = $this->seedTwoLanguages();
+
+        $response = $this->handler(0.0)->handle(new Request('GET', 'random', ['uiLanguage' => 'de']));
+
+        self::assertSame(200, $response->status);
+        self::assertSame($deId, $response->body['id']);
+    }
+
+    public function testRandomWithValidUiLanguageAndEmptyStockYieldsNoQuotes(): void
+    {
+        $response = $this->handler(0.0)->handle(new Request('GET', 'random', ['uiLanguage' => 'de']));
+
         self::assertSame('NO_QUOTES', $response->body['error']);
     }
 

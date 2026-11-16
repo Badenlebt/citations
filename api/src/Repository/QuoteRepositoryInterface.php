@@ -67,6 +67,24 @@ interface QuoteRepositoryInterface
     public function findByIndex(int $index): ?array;
 
     /**
+     * Number of quotes written in the given language (Teilbestand einer
+     * Sprache; Requirements 6.8, 6.9). 0 for an unknown or unused language.
+     */
+    public function countByLanguage(int $languageId): int;
+
+    /**
+     * Read a single quote by its zero-based position within the quotes of one
+     * language, ordered by ascending id (Requirements 6.8, 6.9). Returns the
+     * same joined QuoteRecord shape as {@see self::findById()}, or null when
+     * the index is outside `[0, countByLanguage())`.
+     *
+     * @param int $index Zero-based position in the language's ascending-id ordering.
+     *
+     * @return QuoteRecord|null
+     */
+    public function findByIndexInLanguage(int $languageId, int $index): ?array;
+
+    /**
      * Read every quote joined with its language and source, in a stable,
      * deterministic ascending-id ordering, as the candidate set the search
      * scores and filters in the application layer (Requirements 1.1–1.5, 2.1,

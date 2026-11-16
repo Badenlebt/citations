@@ -2,6 +2,8 @@
 // Shapes mirror the endpoint contracts described in design.md
 // ("Components and Interfaces").
 
+import type { Locale } from '../i18n/locales'
+
 export interface Language {
   id: number
   name: string
@@ -131,3 +133,12 @@ export interface LoginInput {
 
 /** Strategy for deleting a source that still has quotes assigned (Req 11.6). */
 export type SourceDeleteStrategy = 'reassign' | 'cancel'
+
+/** Response of GET /api/language-mappings: quote language id per UI language, or null (Req 9.3). */
+export type LanguageMappings = Record<Locale, number | null>
+
+/** Response of PUT/DELETE /api/language-mappings/{uiLanguage} (Req 9.4, 9.7). */
+export interface LanguageMapping {
+  uiLanguage: Locale
+  languageId: number | null
+}

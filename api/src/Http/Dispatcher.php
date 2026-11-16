@@ -37,6 +37,7 @@ final class Dispatcher implements RequestPipeline
     public const SOURCES = 'sources';
     public const LANGUAGES = 'languages';
     public const AUTH = 'auth';
+    public const LANGUAGE_MAPPINGS = 'language-mappings';
 
     /**
      * @param array<string, Handler> $handlers Handler keyed by API-group key
@@ -58,6 +59,7 @@ final class Dispatcher implements RequestPipeline
      *   - POST /quotes, PUT|DELETE /quotes/{id}
      *   - POST /sources, PUT|DELETE /sources/{id}
      *   - POST /languages
+     *   - PUT|DELETE /language-mappings/{uiLanguage}
      * Every GET is a read (7.3) and the auth login/logout routes are never
      * guarded (they establish/end the session themselves).
      *
@@ -85,6 +87,10 @@ final class Dispatcher implements RequestPipeline
 
         if ($resource === 'languages' && $count === 1) {
             return $method === 'POST';
+        }
+
+        if ($resource === self::LANGUAGE_MAPPINGS && $count === 2) {
+            return in_array($method, ['PUT', 'DELETE'], true);
         }
 
         return false;
@@ -160,7 +166,7 @@ final class Dispatcher implements RequestPipeline
      * or null when nothing matches.
      *
      * @param list<string> $segments
-     * @return array{0: string, 1: array<string, int>}|null
+     * @return array{0: string, 1: array<string, int|string>}|null
      */
     private function match(string $method, array $segments): ?array
     {
@@ -199,6 +205,19 @@ final class Dispatcher implements RequestPipeline
         // Language-API: GET /languages (list), POST /languages (create).
         if ($count === 1 && $resource === 'languages') {
             return in_array($method, ['GET', 'POST'], true) ? [self::LANGUAGES, []] : null;
+        }
+
+        // Language-mapping API: GET /language-mappings (public list),
+        // PUT|DELETE /language-mappings/{uiLanguage} (validated by the handler).
+        if ($resource === self::LANGUAGE_MAPPINGS) {
+            if ($count === 1 && $method === 'GET') {
+                return [self::LANGUAGE_MAPPINGS, []];
+            }
+            if ($count === 2 && in_array($method, ['PUT', 'DELETE'], true)) {
+                return [self::LANGUAGE_MAPPINGS, ['uiLanguage' => $segments[1]]];
+            }
+
+            return null;
         }
 
         // Auth-API: POST /auth/login, POST /auth/logout.

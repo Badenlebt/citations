@@ -17,9 +17,10 @@ const i18nPlugin = {
 // session by loading the full source list (GET /api/sources, Req 19) and the
 // languages, then renders QuoteManager (which calls listQuotes) and
 // SourceManager. We provide every method the mounted tree touches.
-const { listSources, getLanguages, listQuotes, logout } = vi.hoisted(() => ({
+const { listSources, getLanguages, getLanguageMappings, listQuotes, logout } = vi.hoisted(() => ({
   listSources: vi.fn(),
   getLanguages: vi.fn(),
+  getLanguageMappings: vi.fn(),
   listQuotes: vi.fn(),
   logout: vi.fn(),
 }))
@@ -27,7 +28,7 @@ vi.mock('@/api', async (importActual) => {
   const actual = await importActual<typeof import('@/api')>()
   return {
     ...actual,
-    api: { listSources, getLanguages, listQuotes, logout },
+    api: { listSources, getLanguages, getLanguageMappings, listQuotes, logout },
   }
 })
 
@@ -66,12 +67,40 @@ describe('AdminView source list paging (Req 19.1)', () => {
     listQuotes.mockReset()
     logout.mockReset()
     getLanguages.mockResolvedValue(languages)
+    getLanguageMappings.mockReset()
+    getLanguageMappings.mockResolvedValue({ de: null, en: null })
     // QuoteManager mounts and loads its own list; keep it empty here.
     listQuotes.mockResolvedValue({ items: [], total: 0, page: 1, pageSize: 100 })
   })
 
   afterEach(() => {
     vi.clearAllMocks()
+  })
+
+  it('zeigt die Sprachzuordnung in einem eigenen vierten Reiter', async () => {
+    listSources.mockResolvedValue(sourcePage([makeSource(1, true)], 1))
+    const router = makeRouter()
+    await router.push('/admin')
+    const wrapper = mount(AdminView, { global: { plugins: [router, i18nPlugin] } })
+    await flushPromises()
+
+    const tabs = wrapper.findAll('.admin-view__tab')
+    expect(tabs).toHaveLength(4)
+    expect(tabs[3]!.text()).toBe('Zuordnung')
+
+    // Die Zuordnung ist nicht mehr Teil des Sprachen-Reiters.
+    const languageManager = wrapper.find('.language-manager')
+    expect(languageManager.find('select').exists()).toBe(false)
+
+    const mapping = wrapper.find('.language-mapping-manager')
+    expect(mapping.exists()).toBe(true)
+    expect(mapping.attributes('style') ?? '').toContain('display: none')
+
+    await tabs[3]!.trigger('click')
+    await flushPromises()
+    expect(router.currentRoute.value.query.tab).toBe('mappings')
+    expect(wrapper.find('.language-mapping-manager').attributes('style') ?? '').not.toContain('display: none')
+    expect(wrapper.find('.language-manager').attributes('style') ?? '').toContain('display: none')
   })
 
   it('collects sources across multiple pages and passes them to SourceManager', async () => {

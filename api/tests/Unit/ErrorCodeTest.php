@@ -30,6 +30,7 @@ final class ErrorCodeTest extends TestCase
             'MISSING_TEXT' => ['MISSING_TEXT', 400],
             'INVALID_SOURCE' => ['INVALID_SOURCE', 400],
             'INVALID_LANGUAGE' => ['INVALID_LANGUAGE', 400],
+            'INVALID_UI_LANGUAGE' => ['INVALID_UI_LANGUAGE', 400],
             'MISSING_NAME' => ['MISSING_NAME', 400],
             'INVALID_LINK_URL' => ['INVALID_LINK_URL', 400],
             'INPUT_TOO_LONG' => ['INPUT_TOO_LONG', 400],
@@ -43,6 +44,7 @@ final class ErrorCodeTest extends TestCase
             'SOURCE_HAS_QUOTES' => ['SOURCE_HAS_QUOTES', 409],
             'UNKNOWN_SOURCE_RESERVED' => ['UNKNOWN_SOURCE_RESERVED', 409],
             'LANGUAGE_EXISTS' => ['LANGUAGE_EXISTS', 409],
+            'LANGUAGE_ALREADY_MAPPED' => ['LANGUAGE_ALREADY_MAPPED', 409],
             'RATE_LIMITED' => ['RATE_LIMITED', 429],
             'INTERNAL_ERROR' => ['INTERNAL_ERROR', 500],
         ];
@@ -84,7 +86,7 @@ final class ErrorCodeTest extends TestCase
             $tableCodes,
             'The table must cover exactly the defined error codes (no more, no less).',
         );
-        self::assertCount(20, ErrorCode::cases(), 'Exactly 20 error codes are defined.');
+        self::assertCount(22, ErrorCode::cases(), 'Exactly 22 error codes are defined.');
     }
 
     public function testResponseBodyHasExactlyErrorAndMessageKeys(): void

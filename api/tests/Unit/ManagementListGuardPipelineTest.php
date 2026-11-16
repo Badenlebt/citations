@@ -209,6 +209,16 @@ final class SpyingQuoteRepository implements QuoteRepositoryInterface
         return $this->inner->findByIndex($index);
     }
 
+    public function countByLanguage(int $languageId): int
+    {
+        return $this->inner->countByLanguage($languageId);
+    }
+
+    public function findByIndexInLanguage(int $languageId, int $index): ?array
+    {
+        return $this->inner->findByIndexInLanguage($languageId, $index);
+    }
+
     public function findAllForSearch(?int $sourceId = null): array
     {
         return $this->inner->findAllForSearch($sourceId);

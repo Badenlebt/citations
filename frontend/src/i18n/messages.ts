@@ -13,8 +13,16 @@ const de = {
     title: 'Zitate',
   },
   nav: {
+    home: 'Startseite',
     search: 'Suche',
     admin: 'Verwaltung',
+  },
+  home: {
+    heading: 'Zufälliges Zitat',
+    reload: 'Anderes Zitat',
+    empty: 'Es sind noch keine Zitate vorhanden.',
+    error: 'Das Zitat konnte nicht geladen werden.',
+    searchLink: 'Zur Suche',
   },
   language: {
     label: 'Sprache der Oberfläche',
@@ -70,6 +78,7 @@ const de = {
     tabQuotes: 'Zitate',
     tabSources: 'Quellen',
     tabLanguages: 'Sprachen',
+    tabMappings: 'Zuordnung',
     newQuote: 'Neues Zitat',
     newSource: 'Neue Quelle',
     newLanguage: 'Neue Sprache',
@@ -103,6 +112,13 @@ const de = {
       'Alle Zitate werden der Unbekannten Quelle zugeordnet, danach wird die Quelle gelöscht.',
     deleteCancel: 'Löschabbruch',
     deleteCancelHint: 'Der Löschvorgang wird abgebrochen; nichts wird verändert.',
+    languageMappingsHeading: 'Zuordnung der Oberflächensprachen',
+    languageMappingsHint:
+      'Legt fest, welche Zitat-Sprache die Startseite je Oberflächensprache bevorzugt.',
+    languageMappingsNone: 'Keine Zuordnung',
+    languageMappingsUiDe: 'Oberflächensprache Deutsch',
+    languageMappingsUiEn: 'Oberflächensprache Englisch',
+    languageMappingsSaved: 'Zuordnung gespeichert.',
   },
   errors: {
     MISSING_TEXT: 'Der Zitattext darf nicht leer sein.',
@@ -120,6 +136,9 @@ const de = {
     UNAUTHORIZED: 'Die Sitzung ist abgelaufen. Bitte erneut anmelden.',
     NOT_FOUND: 'Der Eintrag wurde nicht gefunden.',
     RATE_LIMITED: 'Zu viele Fehlversuche. Bitte später erneut versuchen.',
+    INVALID_UI_LANGUAGE: 'Die Oberflächensprache ist ungültig.',
+    LANGUAGE_ALREADY_MAPPED:
+      'Diese Sprache ist bereits einer anderen Oberflächensprache zugeordnet.',
     INTERNAL_ERROR: 'Es ist ein interner Fehler aufgetreten.',
     unknown: 'Es ist ein Fehler aufgetreten.',
   },
@@ -148,8 +167,16 @@ const en: MessageSchema = {
     title: 'Quotes',
   },
   nav: {
+    home: 'Home',
     search: 'Search',
     admin: 'Administration',
+  },
+  home: {
+    heading: 'Random quote',
+    reload: 'Another quote',
+    empty: 'There are no quotes yet.',
+    error: 'The quote could not be loaded.',
+    searchLink: 'Go to search',
   },
   language: {
     label: 'Interface language',
@@ -205,6 +232,7 @@ const en: MessageSchema = {
     tabQuotes: 'Quotes',
     tabSources: 'Sources',
     tabLanguages: 'Languages',
+    tabMappings: 'Mapping',
     newQuote: 'New quote',
     newSource: 'New source',
     newLanguage: 'New language',
@@ -238,6 +266,13 @@ const en: MessageSchema = {
       'All quotes are reassigned to the Unknown source, then the source is deleted.',
     deleteCancel: 'Cancel deletion',
     deleteCancelHint: 'The deletion is cancelled; nothing is changed.',
+    languageMappingsHeading: 'UI language mapping',
+    languageMappingsHint:
+      'Defines which quote language the home page prefers for each UI language.',
+    languageMappingsNone: 'No mapping',
+    languageMappingsUiDe: 'UI language German',
+    languageMappingsUiEn: 'UI language English',
+    languageMappingsSaved: 'Mapping saved.',
   },
   errors: {
     MISSING_TEXT: 'The quote text must not be empty.',
@@ -255,6 +290,9 @@ const en: MessageSchema = {
     UNAUTHORIZED: 'Your session has expired. Please sign in again.',
     NOT_FOUND: 'The entry was not found.',
     RATE_LIMITED: 'Too many failed attempts. Please try again later.',
+    INVALID_UI_LANGUAGE: 'The UI language is invalid.',
+    LANGUAGE_ALREADY_MAPPED:
+      'This language is already mapped to another UI language.',
     INTERNAL_ERROR: 'An internal error occurred.',
     unknown: 'An error occurred.',
   },

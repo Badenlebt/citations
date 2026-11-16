@@ -218,6 +218,7 @@ interface Sfc {
 
 const sfcs: readonly Sfc[] = [
   { name: 'App.vue (Inhaltsbereich)', path: resolve(srcDir, 'App.vue') },
+  { name: 'HomeView.vue', path: resolve(viewsDir, 'HomeView.vue') },
   { name: 'SearchView.vue', path: resolve(viewsDir, 'SearchView.vue') },
   { name: 'QuoteDetailView.vue', path: resolve(viewsDir, 'QuoteDetailView.vue') },
   { name: 'SourceDetailView.vue', path: resolve(viewsDir, 'SourceDetailView.vue') },
@@ -232,6 +233,7 @@ const sfcs: readonly Sfc[] = [
   { name: 'admin/QuoteManager.vue', path: resolve(adminDir, 'QuoteManager.vue') },
   { name: 'admin/SourceManager.vue', path: resolve(adminDir, 'SourceManager.vue') },
   { name: 'admin/LanguageManager.vue', path: resolve(adminDir, 'LanguageManager.vue') },
+  { name: 'admin/LanguageMappingManager.vue', path: resolve(adminDir, 'LanguageMappingManager.vue') },
   { name: 'admin/DeleteSourceDialog.vue', path: resolve(adminDir, 'DeleteSourceDialog.vue') },
 ]
 
@@ -255,7 +257,7 @@ describe('Alle Gestaltungswerte stammen aus Tokens (Task 6.8)', () => {
   })
 
   it('kompiliert für jede restylete SFC eine nicht-leere CSS', () => {
-    expect(compiled).toHaveLength(16)
+    expect(compiled).toHaveLength(18)
     for (const { sfc, css } of compiled) {
       expect(css.length, sfc.name + ' ergab leere CSS').toBeGreaterThan(0)
     }

@@ -8,8 +8,13 @@ function testRouter() {
 }
 
 describe('router config', () => {
-  it('resolves the search page at the root path', () => {
+  it('resolves the home page at the root path', () => {
     const resolved = testRouter().resolve('/')
+    expect(resolved.name).toBe(RouteName.Home)
+  })
+
+  it('resolves the search page at /search', () => {
+    const resolved = testRouter().resolve('/search')
     expect(resolved.name).toBe(RouteName.Search)
   })
 

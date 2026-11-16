@@ -45,6 +45,16 @@ final class LazyQuoteRepository implements QuoteRepositoryInterface
         return $this->delegate()->findByIndex($index);
     }
 
+    public function countByLanguage(int $languageId): int
+    {
+        return $this->delegate()->countByLanguage($languageId);
+    }
+
+    public function findByIndexInLanguage(int $languageId, int $index): ?array
+    {
+        return $this->delegate()->findByIndexInLanguage($languageId, $index);
+    }
+
     public function findAllForSearch(?int $sourceId = null): array
     {
         return $this->delegate()->findAllForSearch($sourceId);

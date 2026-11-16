@@ -87,6 +87,13 @@ onBeforeUnmount(() => {
       <nav class="app-header__nav" :aria-label="i18n.t('app.title')">
         <RouterLink
           class="app-header__nav-link"
+          :to="{ name: RouteName.Home }"
+          @click="closeMenu"
+        >
+          {{ i18n.t('nav.home') }}
+        </RouterLink>
+        <RouterLink
+          class="app-header__nav-link"
           :to="{ name: RouteName.Search }"
           @click="closeMenu"
         >

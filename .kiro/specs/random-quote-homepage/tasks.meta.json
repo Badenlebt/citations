@@ -1,0 +1,720 @@
+{
+  "pbtResults": {
+    "2.9 Property-Test für Zuordnungs-Invarianten": {
+      "status": "passed",
+      "lastRunTimestamp": 1794828955643
+    },
+    "4.7 Property-Test für Routenauflösung": {
+      "status": "passed",
+      "lastRunTimestamp": 1794829030913
+    },
+    "4.4 Property-Test für den i18n-Rückfall": {
+      "status": "passed",
+      "lastRunTimestamp": 1794829031172
+    },
+    "5.5 Property-Test für die übergebene Oberflächensprache": {
+      "status": "passed",
+      "lastRunTimestamp": 1794831252808
+    },
+    "5.3 Property-Test für das angezeigte Zitat": {
+      "status": "passed",
+      "lastRunTimestamp": 1794831718227
+    },
+    "5.2 Property-Test für den Zustandsautomaten": {
+      "status": "passed",
+      "lastRunTimestamp": 1794831726125
+    },
+    "5.7 Property-Test für die Zitat-Darstellung": {
+      "status": "passed",
+      "lastRunTimestamp": 1794831925296
+    }
+  },
+  "executionHistory": {
+    "1.1 `UiLanguage`, `UiLanguageResolver` und neue Fehlercodes anlegen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825993907
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825997852
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826289033
+      }
+    ],
+    "1.3 Schema, Migration und Testinfrastruktur ergänzen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825993953
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825998585
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826289416
+      }
+    ],
+    "1.4 Repository für Sprachzuordnungen implementieren": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825993979
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826336112
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826429068
+      }
+    ],
+    "1.5 `QuoteRepositoryInterface` um Sprach-Teilbestand erweitern": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994005
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826336862
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826429898
+      }
+    ],
+    "2.1 `RandomQuoteSelector::pick(?UiLanguage)` erweitern": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994029
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826456149
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826535506
+      }
+    ],
+    "2.5 `SearchHandler::handleRandom()` um `uiLanguage` erweitern": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994055
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826552369
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826638081
+      }
+    ],
+    "2.8 `LanguageMappingService` und Ergebnisklasse implementieren": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994080
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826457263
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826536473
+      }
+    ],
+    "2.11 `LanguageMappingHandler`, Dispatcher-Routen und Verdrahtung ergänzen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994117
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826553210
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826638539
+      }
+    ],
+    "3. Checkpoint - Backend prüfen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994143
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826859115
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828772202
+      }
+    ],
+    "4.1 API-Client, Typen und Fehlercodes erweitern": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994170
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825999168
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826290378
+      }
+    ],
+    "4.3 i18n-Schlüssel und Rückfall ergänzen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994199
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825999722
+      },
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826291076
+      }
+    ],
+    "4.6 Router, Header und Footer anpassen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994227
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826337515
+      },
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826430870
+      }
+    ],
+    "4.8 Bestehende Tests auf `/search` bzw. Startseite anpassen": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994259
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826458113
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826533252
+      }
+    ],
+    "5.1 Composable `useRandomQuote` implementieren": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994284
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826459218
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826534371
+      }
+    ],
+    "5.6 `HomeView.vue` implementieren und verdrahten": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994311
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826554030
+      },
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826639355
+      }
+    ],
+    "6.1 `LanguageManager.vue` und `AdminView.vue` erweitern": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994337
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826459705
+      },
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826537238
+      }
+    ],
+    "7. Abschluss-Checkpoint": [
+      {
+        "executionId": "45d73904-8b49-43af-819d-a3adb5488389",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794825994362
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794832145734
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794832590692
+      }
+    ],
+    "1. Backend-Grundlagen: Sprachlogik, Schema und Repositories": [
+      {
+        "executionId": "0c17c962-d1bc-444b-a8cb-dbfe48c0c7cd",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826429929
+      }
+    ],
+    "4. Frontend-Grundlagen: API-Client, i18n und Router": [
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826533283
+      }
+    ],
+    "6. Zuordnung in der Sprachverwaltung": [
+      {
+        "executionId": "8b876639-7aa4-4cee-bb83-f5af2c17e995",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826537274
+      }
+    ],
+    "2. Backend: Zufallsauswahl und Sprachzuordnungs-API": [
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826638577
+      }
+    ],
+    "5. Startseite mit zufälligem Zitat": [
+      {
+        "executionId": "e58b489c-6f47-44bc-9fcd-5a295c27514d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794826639386
+      }
+    ],
+    "1.2 Unit-Tests für Resolver, Enum und ErrorCode schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828775761
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828784948
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828880816
+      }
+    ],
+    "2.2 Property-Test für ungültigen `uiLanguage`": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828782726
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828880859
+      }
+    ],
+    "2.3 Property-Test für die Rückfallkette": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828782759
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828881949
+      }
+    ],
+    "2.4 Property-Test für `NO_QUOTES`": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828783266
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828883004
+      }
+    ],
+    "2.6 Property-Test für das Antwortformat": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828784047
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828884049
+      }
+    ],
+    "2.7 Unit-Tests für Selector und SearchHandler erweitern": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828885150
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828989281
+      }
+    ],
+    "2.9 Property-Test für Zuordnungs-Invarianten": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828886248
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828990148
+      }
+    ],
+    "2.10 Property-Test für ungültige Eingaben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828887298
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828991115
+      }
+    ],
+    "2.12 Property-Test für Session-Schutz erweitern": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828888131
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828992232
+      }
+    ],
+    "2.13 Unit-Tests für Handler und Dispatcher schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828888970
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828993283
+      }
+    ],
+    "1.6 Integrationstests für Mapping- und Quote-Repository schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828994282
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829090031
+      }
+    ],
+    "4.2 Unit-Tests für den API-Client schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828995105
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829087286
+      }
+    ],
+    "4.4 Property-Test für den i18n-Rückfall": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828996207
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829087315
+      }
+    ],
+    "4.5 Unit-Test für neue Nachrichtenschlüssel schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828997097
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829087914
+      }
+    ],
+    "4.7 Property-Test für Routenauflösung": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794828997865
+      },
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829088982
+      }
+    ],
+    "4.9 Neue Tests für Router, Header und Footer schreiben": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829090816
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831191321
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831318185
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831768687
+      }
+    ],
+    "5.2 Property-Test für den Zustandsautomaten": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829091615
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831191368
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831317987
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831769661
+      }
+    ],
+    "5.3 Property-Test für das angezeigte Zitat": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829092648
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831191411
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831319167
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831770905
+      }
+    ],
+    "5.4 Property-Test für Fehleranzeige": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829093457
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831191446
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831319209
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831771481
+      }
+    ],
+    "5.5 Property-Test für die übergebene Oberflächensprache": [
+      {
+        "executionId": "9bfc1386-22dd-47d8-a104-4275dc01e041",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794829094564
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831191479
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831317563
+      }
+    ],
+    "5.7 Property-Test für die Zitat-Darstellung": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831772381
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831991770
+      }
+    ],
+    "5.8 Property-Test für den Sprachwechsel": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831773371
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831992865
+      }
+    ],
+    "5.9 Beispieltests für `HomeView` schreiben": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831774227
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831989965
+      }
+    ],
+    "6.2 Property-Test für die Auswahl der Sprachverwaltung": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831774970
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831993676
+      }
+    ],
+    "6.3 Unit-Tests für `LanguageManager` schreiben": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831775638
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831990974
+      }
+    ],
+    "5.10 Statische Stiltests um `HomeView.vue` erweitern": [
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794831994611
+      },
+      {
+        "executionId": "c779aabe-cbe4-412f-908c-fe5849fcaf7d",
+        "chatSessionId": "sess_c38cd609-77cb-48fe-ae3f-bda8020e777b",
+        "timestamp": 1794832145378
+      }
+    ]
+  }
+}

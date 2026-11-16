@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import * as sass from 'sass'
@@ -187,5 +188,27 @@ describe('Gleiche Elementtypen sind identisch gestaltet (Property 6)', () => {
       }),
       { numRuns: 100 },
     )
+  })
+})
+
+// Req 7.1/7.6: HomeView.vue ueberschreibt die globale Grundgestaltung der
+// interaktiven Elementtypen nicht ueber blanke Element-Selektoren (a, button,
+// input, select, textarea); Links und Schaltflaeche beziehen Grundwerte aus der
+// globalen Basis und ergaenzen nur klassenbasierte, token-basierte Regeln.
+describe('HomeView.vue haelt die Elementkonsistenz ein', () => {
+  const home = readFileSync(resolve(process.cwd(), 'src/views/HomeView.vue'), 'utf8')
+  const scss = home.match(/<style[^>]*>([\s\S]*?)<\/style>/)![1]
+
+  it('deklariert keine blanken Element-Selektoren fuer interaktive Typen', () => {
+    const bare = /(^|[}{,]\s*)(a|button|input|select|textarea)\s*(?=[,{:])/gm
+    expect(scss.match(bare) ?? []).toEqual([])
+  })
+
+  it('stylt Link und Schaltflaeche nur token-basiert (Farbe per var(--color-*))', () => {
+    const colors = [...scss.matchAll(/(?<![\w-])color:\s*([^;]+);/g)]
+    expect(colors.length).toBeGreaterThan(0)
+    for (const m of colors) {
+      expect(m[1].trim()).toMatch(/^var\(--color-[\w-]+/)
+    }
   })
 })

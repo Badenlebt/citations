@@ -19,6 +19,7 @@ use Citations\Tests\Fake\InMemoryQuoteRepository;
 use Citations\Tests\Fake\InMemorySessionRepository;
 use Citations\Tests\Fake\InMemorySourceRepository;
 use Citations\Tests\Fake\InMemoryStore;
+use Citations\Tests\Fake\InMemoryUiLanguageMappingRepository;
 use Citations\TokenAuthenticator;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
@@ -208,7 +209,7 @@ final class QuoteAndRandomResponseExampleTest extends TestCase
         return new SearchHandler(
             $this->quotes,
             $this->languages,
-            new RandomQuoteSelector($this->quotes, $this->fixedRng($randomDraw)),
+            new RandomQuoteSelector($this->quotes, $this->fixedRng($randomDraw), new InMemoryUiLanguageMappingRepository($this->store)),
         );
     }
 

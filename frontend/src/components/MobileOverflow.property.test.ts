@@ -83,6 +83,7 @@ const utilitiesPath = resolve(scssDir, '_utilities.scss')
 const appFooterPath = resolve(componentsDir, 'AppFooter.vue')
 const appHeaderPath = resolve(componentsDir, 'AppHeader.vue')
 const lengthInputPath = resolve(componentsDir, 'LengthLimitedInput.vue')
+const homeViewPath = resolve(frontendRoot, 'src/views/HomeView.vue')
 
 /** Extrahiert den Inhalt des ersten `<style ... lang="scss">`-Blocks einer SFC. */
 function extractScopedScss(sfcPath: string): string {
@@ -218,6 +219,7 @@ const utilitiesCss = sass.compile(utilitiesPath).css
 const footerCss = compileScoped(appFooterPath)
 const headerCss = compileScoped(appHeaderPath)
 const inputCss = compileScoped(lengthInputPath)
+const homeCss = compileScoped(homeViewPath)
 
 interface Container {
   /** Sprechender Name für Fehlermeldungen. */
@@ -326,13 +328,35 @@ const containers: readonly Container[] = [
       return fixedPxWidthOverflow(block, viewport)
     },
   },
+  {
+    // .home-view (Startseite): einspaltiges Flex-Layout ohne feste px-Breite,
+    // min-width: 0 verhindert Aufweitung durch langen Inhalt; Zitat und
+    // Quellenangabe brechen per overflow-wrap: anywhere um (Req 7.8, 7.9).
+    name: '.home-view (Startseite)',
+    block: ruleBlock(homeCss, '.home-view'),
+    overflowReason: (viewport) => {
+      const block = ruleBlock(homeCss, '.home-view')
+      if (normalise(readProperty(block, 'min-width') ?? '') !== '0') {
+        return '.home-view deklariert nicht min-width: 0'
+      }
+      for (const selector of ['.home-view__text', '.home-view__caption']) {
+        const textBlock = ruleBlock(homeCss, selector)
+        if (normalise(readProperty(textBlock, 'overflow-wrap') ?? '') !== 'anywhere') {
+          return selector + ' deklariert nicht overflow-wrap: anywhere'
+        }
+        const textOverflow = fixedPxWidthOverflow(textBlock, viewport)
+        if (textOverflow) return selector + ': ' + textOverflow
+      }
+      return fixedPxWidthOverflow(block, viewport)
+    },
+  },
 ]
 
 describe('Mobile viewport: kein horizontaler Überlauf (Task 8.2)', () => {
   // Vorab-Belege, dass die kompilierten Quellen die erwarteten Container tragen
   // (fängt Fehlkonfiguration der Methodik, nicht nur die Property, ab).
   it('kompiliert die geprüften Layout-Container aus den realen Quellen', () => {
-    expect(containers).toHaveLength(4)
+    expect(containers).toHaveLength(5)
     for (const container of containers) {
       expect(container.block.length).toBeGreaterThan(0)
     }

@@ -90,7 +90,8 @@ const components: ComponentRef[] = [
           { kind: 'ariaLabel', selector: 'button.app-header__toggle', label: 'Toggle navigation menu' },
           { kind: 'ariaLabel', selector: 'nav.app-header__nav', label: DE.t('app.title') },
           // Navigationseintraege (Links) mit Namen aus i18n.
-          { kind: 'element', selector: 'a.app-header__nav-link[href="/"]', text: DE.t('nav.search') },
+          { kind: 'element', selector: 'a.app-header__nav-link[href="/"]', text: DE.t('nav.home') },
+          { kind: 'element', selector: 'a.app-header__nav-link[href="/search"]', text: DE.t('nav.search') },
           { kind: 'element', selector: 'a.app-header__nav-link[href="/admin"]', text: DE.t('nav.admin') },
           // Zustand: aria-expanded am Hamburger-Button (geschlossen nach Mount).
           { kind: 'state', selector: 'button.app-header__toggle', attr: 'aria-expanded', value: 'false' },

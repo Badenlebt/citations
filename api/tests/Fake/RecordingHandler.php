@@ -19,7 +19,7 @@ final class RecordingHandler implements Handler
 {
     public bool $called = false;
     public ?Request $lastRequest = null;
-    /** @var array<string, int> */
+    /** @var array<string, int|string> */
     public array $lastPathParams = [];
 
     public function __construct(

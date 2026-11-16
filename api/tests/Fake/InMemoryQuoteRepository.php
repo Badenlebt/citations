@@ -55,6 +55,38 @@ final class InMemoryQuoteRepository implements QuoteRepositoryInterface
         return $id === null ? null : $this->toRecord($this->store->quotes[$id]);
     }
 
+    public function countByLanguage(int $languageId): int
+    {
+        $count = 0;
+        foreach ($this->store->quotes as $row) {
+            if ($row['languageId'] === $languageId) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
+    public function findByIndexInLanguage(int $languageId, int $index): ?array
+    {
+        if ($index < 0) {
+            return null;
+        }
+
+        // Mirror the PDO WHERE language_id ... ORDER BY q.id ASC sub-stock.
+        $ids = [];
+        foreach ($this->store->quotes as $id => $row) {
+            if ($row['languageId'] === $languageId) {
+                $ids[] = $id;
+            }
+        }
+        sort($ids);
+
+        $id = $ids[$index] ?? null;
+
+        return $id === null ? null : $this->toRecord($this->store->quotes[$id]);
+    }
+
     public function findAllForSearch(?int $sourceId = null): array
     {
         // Mirror the PDO ORDER BY q.id ASC so the candidate set is in the same

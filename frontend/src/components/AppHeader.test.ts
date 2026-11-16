@@ -47,24 +47,24 @@ describe('AppHeader', () => {
     vi.unstubAllGlobals()
   })
 
-  it('renders the brand title and both navigation links (Req 4.1)', async () => {
+  it('renders the brand title and all navigation links (Req 4.1)', async () => {
     const router = makeRouter()
     const wrapper = await mountHeader(createI18n('de'), router, '/')
 
     expect(wrapper.get('.app-header__title').text()).toBe('Zitate')
 
     const links = wrapper.findAll('.app-header__nav-link')
-    expect(links.map((l) => l.text())).toEqual(['Suche', 'Verwaltung'])
+    expect(links.map((l) => l.text())).toEqual(['Startseite', 'Suche', 'Verwaltung'])
   })
 
-  it('links navigation to the Search and Admin routes', async () => {
+  it('links navigation to the Home, Search and Admin routes', async () => {
     const router = makeRouter()
     const wrapper = await mountHeader(createI18n('en'), router, '/')
 
     const hrefs = wrapper
       .findAll('a.app-header__nav-link')
       .map((a) => a.attributes('href'))
-    expect(hrefs).toEqual(['/', '/admin'])
+    expect(hrefs).toEqual(['/', '/search', '/admin'])
   })
 
   it('marks the active route via router-link-exact-active (Req 6.3)', async () => {
@@ -78,7 +78,7 @@ describe('AppHeader', () => {
 
     const searchLink = wrapper
       .findAll('a.app-header__nav-link')
-      .find((a) => a.attributes('href') === '/')
+      .find((a) => a.attributes('href') === '/search')
     expect(searchLink?.classes()).not.toContain('router-link-exact-active')
   })
 
